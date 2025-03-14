@@ -71,7 +71,7 @@ LIBQEMU_CXXFLAGS-y += $(LIBQEMU_SUPPRESS_FLAGS)
 ################################################################################
 # Sources
 ################################################################################
-LIBQEMU_SRCS-y += $(LIBQEMU_EXTRACTED)/subprojects/slirp/src/arp_table.c
+LIBQEMU_SRCS-y += $(LIBQEMU_EXTRACTED)/job.c
 
 ################################################################################
 # QEMU prepare
