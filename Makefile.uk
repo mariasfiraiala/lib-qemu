@@ -80,132 +80,76 @@ LIBQEMU_SRCS-y += $(LIBQEMU_EXTRACTED)/subprojects/slirp/src/arp_table.c
 $(LIBQEMU_BUILD)/.configured: $(LIBQEMU_BUILD)/.origin
 	$(call verbose_cmd,CONFIG,libqemu: $(notdir $@), \
 	cd $(LIBQEMU_EXTRACTED) && ./configure \
-		--target-list=x86_64-linux-user \
-        --prefix=/ \
-        --audio-drv-list="" \
-        --enable-attr \
+        --cxx=/non-existent \
+        --disable-attr \
         --disable-auth-pam \
-        --disable-alsa \
         --disable-bochs \
-        --disable-bpf \
         --disable-brlapi \
-        --disable-bsd-user \
         --disable-bzip2 \
-        --disable-canokey \
-        --disable-capstone \
-        --disable-cfi \
-        --disable-cfi-debug \
+        --disable-cap-ng \
         --disable-cloop \
         --disable-cocoa \
-        --disable-colo-proxy \
-        --disable-coreaudio \
+        --disable-coroutine-pool \
         --disable-crypto-afalg \
         --disable-curl \
         --disable-curses \
-        --disable-dbus-display \
         --disable-dmg \
         --disable-docs \
-        --disable-dsound \
-        --disable-fuse \
-        --disable-fuse-lseek \
-        --disable-gcov \
         --disable-gcrypt \
-        --disable-gettext \
-        --disable-gio \
         --disable-glusterfs \
         --disable-gnutls \
         --disable-gtk \
-        --disable-gtk-clipboard \
         --disable-guest-agent \
-        --disable-guest-agent-msi \
-        --disable-hv-balloon \
-        --disable-hvf \
-        --disable-iconv \
-        --disable-jack \
-        --disable-keyring \
-        --disable-l2tpv3 \
-        --disable-libdaxctl \
-        --disable-libdw \
+        --disable-hax \
+        --disable-kvm \
         --disable-libiscsi \
         --disable-libnfs \
-        --disable-libpmem \
         --disable-libssh \
-        --disable-libudev \
-        --disable-libusb \
-        --disable-libvduse \
         --disable-linux-aio \
-        --disable-linux-io-uring \
-        --enable-linux-user \
-        --disable-lzfse \
-        --enable-lzo \
-        --disable-malloc-trim \
-        --disable-membarrier \
-        --disable-modules \
-        --disable-mpath \
-        --disable-multiprocess \
+        --disable-live-block-migration \
+        --disable-lzo \
         --disable-netmap \
         --disable-nettle \
         --disable-numa \
-        --disable-nvmm \
         --disable-opengl \
-        --disable-oss \
-        --disable-pa \
         --disable-parallels \
-        --disable-pipewire \
-        --disable-pixman \
-        --enable-pie \
-        --disable-png \
         --disable-qcow1 \
         --disable-qed \
-        --disable-qga-vss \
+        --disable-qom-cast-debug \
         --disable-rbd \
         --disable-rdma \
         --disable-replication \
-        --disable-rutabaga-gfx \
-        --disable-safe-stack \
         --disable-sdl \
-        --disable-sdl-image \
-        --disable-seccomp \
-        --disable-selinux \
-        --enable-slirp \
-        --disable-slirp-smbd \
+        --disable-slirp \
         --disable-smartcard \
         --disable-snappy \
-        --disable-sndio \
-        --disable-sparse \
         --disable-spice \
-        --disable-spice-protocol \
-        --enable-system \
-        --enable-tcg \
-        --enable-tools \
+        --disable-spice \
+        --disable-tcg \
+        --disable-tools \
         --disable-tpm \
-        --disable-u2f \
         --disable-usb-redir \
-        --enable-user \
         --disable-vde \
         --disable-vdi \
-        --disable-vduse-blk-export \
-        --disable-vfio-user-server \
-        --disable-vhdx \
-        --enable-vhost-crypto \
-        --enable-vhost-kernel \
-        --enable-vhost-net \
-        --enable-vhost-user \
-        --enable-vhost-user-blk-server \
-        --enable-vhost-vdpa \
+        --disable-vhost-crypto \
+        --disable-vhost-net \
+        --disable-vhost-user \
         --disable-virglrenderer \
-        --disable-vmnet \
+        --disable-virglrenderer \
+        --disable-virtfs \
         --disable-vnc \
-        --disable-vnc-jpeg \
-        --disable-vnc-sasl \
-        --disable-vpc \
         --disable-vte \
         --disable-vvfat \
         --disable-werror \
-        --disable-whpx \
-        --disable-xkbcommon \
-        --disable-zstd \
-        --enable-virtfs \
+        --enable-pie \
+        --enable-rng-none \
+        --enable-seccomp \
+        --enable-trace-backends=log \
+        --enable-xen \
+        --enable-xen-pci-passthrough \
+        --prefix=/usr \
+        --target-list=x86_64-softmmu \
+        --without-default-features \
     && touch $@)
 
 UK_PREPARE += $(LIBQEMU_BUILD)/.configured
