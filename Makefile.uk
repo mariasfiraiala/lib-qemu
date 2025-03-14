@@ -1,0 +1,211 @@
+# libqemu Makefile.uk
+#
+# Authors: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+#
+# Copyright (c) 2021, University Politehnica of Bucharest. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+# 3. Neither the name of the copyright holder nor the names of its
+#    contributors may be used to endorse or promote products derived from
+#    this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+################################################################################
+# Library registration
+################################################################################
+$(eval $(call addlib_s,libqemu,$(CONFIG_LIBQEMU)))
+
+################################################################################
+# Original sources
+################################################################################
+LIBQEMU_VERSION=8.1.2
+LIBQEMU_URL=https://download.qemu.org/qemu-$(LIBQEMU_VERSION).tar.xz
+LIBQEMU_DIR=qemu-$(LIBQEMU_VERSION)
+
+$(eval $(call fetch,libqemu,$(LIBQEMU_URL),$(LIBQEMU_VERSION).tar.gz))
+
+################################################################################
+# Helpers
+################################################################################
+LIBQEMU_EXTRACTED=$(LIBQEMU_ORIGIN)/$(LIBQEMU_DIR)
+
+################################################################################
+# Library includes
+################################################################################
+CINCLUDES-$(CONFIG_LIBQEMU)   += -I$(LIBQEMU_EXTRACTED)
+CXXINCLUDES-$(CONFIG_LIBQEMU) += -I$(LIBQEMU_EXTRACTED)
+
+################################################################################
+# Global flags
+################################################################################
+LIBQEMU_SUPPRESS_FLAGS += -Wno-unused-parameter   \
+	      -Wno-unused-variable            \
+		  -Wno-unused-value               \
+		  -Wno-unused-function            \
+		  -Wno-missing-field-initializers \
+		  -Wno-implicit-fallthrough
+
+LIBQEMU_CFLAGS-y   += $(LIBQEMU_SUPPRESS_FLAGS) \
+		      -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
+LIBQEMU_CXXFLAGS-y += $(LIBQEMU_SUPPRESS_FLAGS)
+
+################################################################################
+# Sources
+################################################################################
+LIBQEMU_SRCS-y += $(LIBQEMU_EXTRACTED)/subprojects/slirp/src/arp_table.c
+
+################################################################################
+# QEMU prepare
+################################################################################
+# Run ./configure
+$(LIBQEMU_BUILD)/.configured: $(LIBQEMU_BUILD)/.origin
+	$(call verbose_cmd,CONFIG,libqemu: $(notdir $@), \
+	cd $(LIBQEMU_EXTRACTED) && ./configure \
+		--target-list=x86_64-linux-user \
+        --prefix=/ \
+        --audio-drv-list="" \
+        --enable-attr \
+        --disable-auth-pam \
+        --disable-alsa \
+        --disable-bochs \
+        --disable-bpf \
+        --disable-brlapi \
+        --disable-bsd-user \
+        --disable-bzip2 \
+        --disable-canokey \
+        --disable-capstone \
+        --disable-cfi \
+        --disable-cfi-debug \
+        --disable-cloop \
+        --disable-cocoa \
+        --disable-colo-proxy \
+        --disable-coreaudio \
+        --disable-crypto-afalg \
+        --disable-curl \
+        --disable-curses \
+        --disable-dbus-display \
+        --disable-dmg \
+        --disable-docs \
+        --disable-dsound \
+        --disable-fuse \
+        --disable-fuse-lseek \
+        --disable-gcov \
+        --disable-gcrypt \
+        --disable-gettext \
+        --disable-gio \
+        --disable-glusterfs \
+        --disable-gnutls \
+        --disable-gtk \
+        --disable-gtk-clipboard \
+        --disable-guest-agent \
+        --disable-guest-agent-msi \
+        --disable-hv-balloon \
+        --disable-hvf \
+        --disable-iconv \
+        --disable-jack \
+        --disable-keyring \
+        --disable-l2tpv3 \
+        --disable-libdaxctl \
+        --disable-libdw \
+        --disable-libiscsi \
+        --disable-libnfs \
+        --disable-libpmem \
+        --disable-libssh \
+        --disable-libudev \
+        --disable-libusb \
+        --disable-libvduse \
+        --disable-linux-aio \
+        --disable-linux-io-uring \
+        --enable-linux-user \
+        --disable-lzfse \
+        --enable-lzo \
+        --disable-malloc-trim \
+        --disable-membarrier \
+        --disable-modules \
+        --disable-mpath \
+        --disable-multiprocess \
+        --disable-netmap \
+        --disable-nettle \
+        --disable-numa \
+        --disable-nvmm \
+        --disable-opengl \
+        --disable-oss \
+        --disable-pa \
+        --disable-parallels \
+        --disable-pipewire \
+        --disable-pixman \
+        --enable-pie \
+        --disable-png \
+        --disable-qcow1 \
+        --disable-qed \
+        --disable-qga-vss \
+        --disable-rbd \
+        --disable-rdma \
+        --disable-replication \
+        --disable-rutabaga-gfx \
+        --disable-safe-stack \
+        --disable-sdl \
+        --disable-sdl-image \
+        --disable-seccomp \
+        --disable-selinux \
+        --enable-slirp \
+        --disable-slirp-smbd \
+        --disable-smartcard \
+        --disable-snappy \
+        --disable-sndio \
+        --disable-sparse \
+        --disable-spice \
+        --disable-spice-protocol \
+        --enable-system \
+        --enable-tcg \
+        --enable-tools \
+        --disable-tpm \
+        --disable-u2f \
+        --disable-usb-redir \
+        --enable-user \
+        --disable-vde \
+        --disable-vdi \
+        --disable-vduse-blk-export \
+        --disable-vfio-user-server \
+        --disable-vhdx \
+        --enable-vhost-crypto \
+        --enable-vhost-kernel \
+        --enable-vhost-net \
+        --enable-vhost-user \
+        --enable-vhost-user-blk-server \
+        --enable-vhost-vdpa \
+        --disable-virglrenderer \
+        --disable-vmnet \
+        --disable-vnc \
+        --disable-vnc-jpeg \
+        --disable-vnc-sasl \
+        --disable-vpc \
+        --disable-vte \
+        --disable-vvfat \
+        --disable-werror \
+        --disable-whpx \
+        --disable-xkbcommon \
+        --disable-zstd \
+        --enable-virtfs \
+    && touch $@)
+
+UK_PREPARE += $(LIBQEMU_BUILD)/.configured
