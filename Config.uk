@@ -1,4 +1,4 @@
-config LIBZLIB
+config LIBQEMU
 	   bool "QEMU - an emulation library"
 	   default n
 	   depends on HAVE_LIBC
