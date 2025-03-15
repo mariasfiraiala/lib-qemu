@@ -1,0 +1,23 @@
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/qemu/osdep.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/qemu/ctype.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/qemu/cutils.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/qemu/module.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/qemu/error-report.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/gdbstubtrace.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/exec/gdbstub.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/gdbstub/syscalls.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/gdbstub/user.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/hw/cpu/cluster.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/hw/boards.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/sysemu/hw_accel.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/sysemu/runstate.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/exec/replay-core.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/exec/hwaddr.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/gdbstubinternals.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/qemu/sockets.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/exec/tb-flush.h
+LIBQEMU_GDB_USER_HDRS-y += $(LIBQEMU)/include/hw/core/cpu.h
+
+LIBQEMU_GDB_USER_SRCS-y += $(LIBQEMU)/gdbstub/gdbstub.c
+LIBQEMU_GDB_USER_SRCS-y += $(LIBQEMU)/gdbstub/user.c
+$(eval $(call _libqemu_import_lib,gdb_user,$(LIBQEMU_GDB_USER_HDRS-y),$(LIBQEMU_GDB_USER_SRCS-y)))

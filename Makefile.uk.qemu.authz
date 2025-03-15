@@ -1,0 +1,22 @@
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qemu/osdep.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/authz/base.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qemu/module.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/authztrace.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/authz/list.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qom/object_interfaces.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qapi/qapi-visit-authz.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/authz/listfile.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qemu/error-report.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qemu/main-loop.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qemu/sockets.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qemu/filemonitor.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qapi/qmp/qjson.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qapi/qmp/qobject.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qapi/qobject-input-visitor.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/authz/simple.h
+
+LIBQEMU_AUTHZ_SRCS-y += $(LIBQEMU)/authz/base.c
+LIBQEMU_AUTHZ_SRCS-y += $(LIBQEMU)/authz/list.c
+LIBQEMU_AUTHZ_SRCS-y += $(LIBQEMU)/authz/listfile.c
+LIBQEMU_AUTHZ_SRCS-y += $(LIBQEMU)/authz/simple.c
+$(eval $(call _libqemu_import_lib,authz,$(LIBQEMU_AUTHZ_HDRS-y),$(LIBQEMU_AUTHZ_SRCS-y)))

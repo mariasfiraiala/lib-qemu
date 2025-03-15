@@ -1,0 +1,8 @@
+LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/qemu/osdep.h
+LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/qom/object_interfaces.h
+LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/qapi/error.h
+LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/block/thread-pool.h
+LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/sysemu/event-loop-base.h
+
+LIBQEMU_EVENT-LOOP-BASE_SRCS-y += $(LIBQEMU)/event-loop-base.c
+$(eval $(call _libqemu_import_lib,event-loop-base,$(LIBQEMU_EVENT-LOOP-BASE_HDRS-y),$(LIBQEMU_EVENT-LOOP-BASE_SRCS-y)))
