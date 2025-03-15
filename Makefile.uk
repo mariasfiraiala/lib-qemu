@@ -39,10 +39,10 @@ $(eval $(call addlib_s,libqemu,$(CONFIG_LIBQEMU)))
 ################################################################################
 LIBQEMU_VERSION=8.1.2
 LIBQEMU_URL=https://download.qemu.org/qemu-$(LIBQEMU_VERSION).tar.xz
-LIBQEMU_DIR=qemu-$(LIBQEMU_VERSION)
+LIBQEMU_DIR=qemu-$(LIBQEMU_VERSION)/
 LIBQEMU_PATCHDIR=$(LIBQEMU_BASE)/patches
 
-$(eval $(call fetch,libqemu,$(LIBQEMU_URL),$(LIBQEMU_VERSION).tar.gz))
+$(eval $(call fetch,libqemu,$(LIBQEMU_URL)))
 $(eval $(call patch,libqemu,$(LIBQEMU_PATCHDIR),$(LIBQEMU_DIR)))
 
 ################################################################################
@@ -52,6 +52,9 @@ LIBQEMU=$(LIBQEMU_ORIGIN)/$(LIBQEMU_DIR)
 
 # Additional macros for qemu sub-libraries
 include $(LIBQEMU_BASE)/Makefile.rules
+$(LIBQEMU_BUILD)/.prepared: $(LIBQEMU_BUILD)/.patched
+	touch $@
+UK_PREPARE += $(LIBQEMU_BUILD)/.prepared
 
 ################################################################################
 # Library includes
@@ -73,6 +76,8 @@ LIBQEMU_CFLAGS-y   += $(LIBQEMU_SUPPRESS_FLAGS) \
 		      -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
 LIBQEMU_CXXFLAGS-y += $(LIBQEMU_SUPPRESS_FLAGS)
 
+CFLAGS-$(CONFIG_LIBQEMU) += $(LIBQEMU_HDRS_FLAGS-y)
+CXXFLAGS-$(CONFIG_LIBQEMU) += $(LIBQEMU_HDRS_FLAGS-y)
 ################################################################################
 # QEMU code -- one external Makefile per sub-lib
 ################################################################################
