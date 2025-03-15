@@ -349,7 +349,6 @@ LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/include/hw/core/tcg-cpu-ops.h
 LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/include/qemu/rcu_queue.h
 LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/include/qemu/pmem.h
 LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/include/qemu/mmap-alloc.h
-LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/softmmumemory_ldst.c.inc
 LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/migrationxbzrle.h
 LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/migrationram-compress.h
 LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/migrationram.h
