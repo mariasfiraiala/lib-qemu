@@ -40,8 +40,10 @@ $(eval $(call addlib_s,libqemu,$(CONFIG_LIBQEMU)))
 LIBQEMU_VERSION=8.1.2
 LIBQEMU_URL=https://download.qemu.org/qemu-$(LIBQEMU_VERSION).tar.xz
 LIBQEMU_DIR=qemu-$(LIBQEMU_VERSION)
+LIBQEMU_PATCHDIR=$(LIBQEMU_BASE)/patches
 
 $(eval $(call fetch,libqemu,$(LIBQEMU_URL),$(LIBQEMU_VERSION).tar.gz))
+$(eval $(call patch,libqemu,$(LIBQEMU_PATCHDIR),$(LIBQEMU_DIR)))
 
 ################################################################################
 # Helpers

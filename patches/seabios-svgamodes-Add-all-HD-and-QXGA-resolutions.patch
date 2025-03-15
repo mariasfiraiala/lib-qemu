@@ -1,0 +1,80 @@
+From: Frédéric Pierret (fepitre) <frederic.pierret@qubes-os.org>
+Date:   Sun May 21 20:36:03 2023 +0200
+Subject: Add all HD and QXGA resolutions and Framework Laptop native one
+    
+Based on https://mail.coreboot.org/hyperkitty/list/seabios@seabios.org/thread/2G5FD4DDYZXANAKNI5V6O3SGM27V3SV7/#2G5FD4DDYZXANAKNI5V6O3SGM27V3SV7
+
+--- a/roms/seabios/vgasrc/svgamodes.c	2023-11-18 22:55:54.731000000 +0100
++++ b/roms/seabios/vgasrc/svgamodes.c	2023-11-18 23:06:55.872000000 +0100
+@@ -100,5 +100,71 @@
+     { 0x19c, { MM_DIRECT, 4096, 2160, 32, 8, 16, SEG_GRAPH } },
+     { 0x19d, { MM_DIRECT, 5120, 2160, 16, 8, 16, SEG_GRAPH } },
+     { 0x19e, { MM_DIRECT, 5120, 2160, 32, 8, 16, SEG_GRAPH } },
++
++    /* other high-definition resolutions */
++    { 0x19f, { MM_DIRECT, 960,  540,  16, 8, 16, SEG_GRAPH } },
++    { 0x1a0, { MM_DIRECT, 960,  540,  24, 8, 16, SEG_GRAPH } },
++    { 0x1a1, { MM_DIRECT, 960,  540,  32, 8, 16, SEG_GRAPH } },
++    { 0x1a2, { MM_DIRECT, 1280, 1080, 16, 8, 16, SEG_GRAPH } },
++    { 0x1a3, { MM_DIRECT, 1280, 1080, 24, 8, 16, SEG_GRAPH } },
++    { 0x1a4, { MM_DIRECT, 1280, 1080, 32, 8, 16, SEG_GRAPH } },
++    { 0x1a2, { MM_DIRECT, 2048, 1080, 16, 8, 16, SEG_GRAPH } },
++    { 0x1a3, { MM_DIRECT, 2048, 1080, 24, 8, 16, SEG_GRAPH } },
++    { 0x1a4, { MM_DIRECT, 2048, 1080, 32, 8, 16, SEG_GRAPH } },
++    { 0x1a5, { MM_DIRECT, 2160, 1080, 16, 8, 16, SEG_GRAPH } },
++    { 0x1a6, { MM_DIRECT, 2160, 1080, 24, 8, 16, SEG_GRAPH } },
++    { 0x1a7, { MM_DIRECT, 2160, 1080, 32, 8, 16, SEG_GRAPH } },
++    { 0x1a8, { MM_DIRECT, 2560, 1080, 16, 8, 16, SEG_GRAPH } },
++    { 0x1a9, { MM_DIRECT, 2560, 1080, 24, 8, 16, SEG_GRAPH } },
++    { 0x1aa, { MM_DIRECT, 2560, 1080, 32, 8, 16, SEG_GRAPH } },
++    { 0x1ab, { MM_DIRECT, 2560, 1440, 16, 8, 16, SEG_GRAPH } },
++    { 0x1ac, { MM_DIRECT, 2560, 1440, 24, 8, 16, SEG_GRAPH } },
++    { 0x1ad, { MM_DIRECT, 2560, 1440, 32, 8, 16, SEG_GRAPH } },
++    { 0x1ae, { MM_DIRECT, 3200, 1800, 16, 8, 16, SEG_GRAPH } },
++    { 0x1af, { MM_DIRECT, 3200, 1800, 24, 8, 16, SEG_GRAPH } },
++    { 0x1b0, { MM_DIRECT, 3200, 1800, 32, 8, 16, SEG_GRAPH } },
++    { 0x1b1, { MM_DIRECT, 3440, 1440, 16, 8, 16, SEG_GRAPH } },
++    { 0x1b2, { MM_DIRECT, 3440, 1440, 24, 8, 16, SEG_GRAPH } },
++    { 0x1b3, { MM_DIRECT, 3440, 1440, 32, 8, 16, SEG_GRAPH } },
++    { 0x1b4, { MM_DIRECT, 3840, 1080, 16, 8, 16, SEG_GRAPH } },
++    { 0x1b5, { MM_DIRECT, 3840, 1080, 24, 8, 16, SEG_GRAPH } },
++    { 0x1b6, { MM_DIRECT, 3840, 1080, 32, 8, 16, SEG_GRAPH } },
++    { 0x1b7, { MM_DIRECT, 3840, 1600, 16, 8, 16, SEG_GRAPH } },
++    { 0x1b8, { MM_DIRECT, 3840, 1600, 24, 8, 16, SEG_GRAPH } },
++    { 0x1b9, { MM_DIRECT, 3840, 1600, 32, 8, 16, SEG_GRAPH } },
++    { 0x1c6, { MM_DIRECT, 7680,  4320, 16, 8, 16, SEG_GRAPH } },
++    { 0x1c7, { MM_DIRECT, 7680,  4320, 24, 8, 16, SEG_GRAPH } },
++    { 0x1c8, { MM_DIRECT, 7680,  4320, 32, 8, 16, SEG_GRAPH } },
++    { 0x1c9, { MM_DIRECT, 17280, 4320, 16, 8, 16, SEG_GRAPH } },
++    { 0x1ca, { MM_DIRECT, 17280, 4320, 24, 8, 16, SEG_GRAPH } },
++    { 0x1cb, { MM_DIRECT, 17280, 4320, 32, 8, 16, SEG_GRAPH } },
++
++    /* quad extended graphics array resolutions */
++    { 0x1cc, { MM_DIRECT, 2048,  1152, 16, 8, 16, SEG_GRAPH } },
++    { 0x1cd, { MM_DIRECT, 2048,  1152, 24, 8, 16, SEG_GRAPH } },
++    { 0x1ce, { MM_DIRECT, 2048,  1152, 32, 8, 16, SEG_GRAPH } },
++    { 0x1cf, { MM_DIRECT, 2048,  1536, 16, 8, 16, SEG_GRAPH } },
++    { 0x1d0, { MM_DIRECT, 2048,  1536, 24, 8, 16, SEG_GRAPH } },
++    { 0x1d1, { MM_DIRECT, 2048,  1536, 32, 8, 16, SEG_GRAPH } },
++    { 0x1d2, { MM_DIRECT, 2560,  1600, 16, 8, 16, SEG_GRAPH } },
++    { 0x1d3, { MM_DIRECT, 2560,  1600, 24, 8, 16, SEG_GRAPH } },
++    { 0x1d4, { MM_DIRECT, 2560,  1600, 32, 8, 16, SEG_GRAPH } },
++    { 0x1d5, { MM_DIRECT, 2560,  2048, 16, 8, 16, SEG_GRAPH } },
++    { 0x1d6, { MM_DIRECT, 2560,  2048, 24, 8, 16, SEG_GRAPH } },
++    { 0x1d7, { MM_DIRECT, 2560,  2048, 32, 8, 16, SEG_GRAPH } },
++    { 0x1d8, { MM_DIRECT, 3200,  2048, 16, 8, 16, SEG_GRAPH } },
++    { 0x1d9, { MM_DIRECT, 3200,  2048, 24, 8, 16, SEG_GRAPH } },
++    { 0x1da, { MM_DIRECT, 3200,  2048, 32, 8, 16, SEG_GRAPH } },
++    { 0x1db, { MM_DIRECT, 3200,  2400, 16, 8, 16, SEG_GRAPH } },
++    { 0x1dc, { MM_DIRECT, 3200,  2400, 24, 8, 16, SEG_GRAPH } },
++    { 0x1dd, { MM_DIRECT, 3200,  2400, 32, 8, 16, SEG_GRAPH } },
++    { 0x1de, { MM_DIRECT, 3840,  2400, 16, 8, 16, SEG_GRAPH } },
++    { 0x1df, { MM_DIRECT, 3840,  2400, 24, 8, 16, SEG_GRAPH } },
++    { 0x1e0, { MM_DIRECT, 3840,  2400, 32, 8, 16, SEG_GRAPH } },
++
++    /* Framework Laptop resolution */
++    { 0x1e1, { MM_DIRECT, 2256,  1504, 16, 8, 16, SEG_GRAPH } },
++    { 0x1e2, { MM_DIRECT, 2256,  1504, 24, 8, 16, SEG_GRAPH } },
++    { 0x1e3, { MM_DIRECT, 2256,  1504, 32, 8, 16, SEG_GRAPH } },
+ };
+ unsigned int svga_mcount VAR16 = ARRAY_SIZE(svga_modes);

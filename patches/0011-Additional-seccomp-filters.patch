@@ -1,0 +1,66 @@
+From 9e6b4f99f82a0d998f02e4aa984f91dba535f006 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Pierret=20=28fepitre=29?=
+ <frederic.pierret@qubes-os.org>
+Date: Mon, 1 Nov 2021 18:34:16 +0100
+Subject: [PATCH 11/21] Additional seccomp filters
+
+Adapted from https://github.com/QubesOS/qubes-vmm-xen-stubdom-linux/blob/2a814bd1edaf549ef9252eb6747aa6137abf9831/qemu/patches/additional-seccomp-filters.patch
+
+Author: alcreator
+
+Contributors: fepitre
+---
+ softmmu/qemu-seccomp.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/softmmu/qemu-seccomp.c b/softmmu/qemu-seccomp.c
+index d66a2a1226..d552fb9377 100644
+--- a/softmmu/qemu-seccomp.c
++++ b/softmmu/qemu-seccomp.c
+@@ -136,6 +136,8 @@ static const struct QemuSeccompSyscall denylist[] = {
+       0, NULL, SCMP_ACT_TRAP },
+     { SCMP_SYS(umount),                 QEMU_SECCOMP_SET_DEFAULT,
+       0, NULL, SCMP_ACT_TRAP },
++    { SCMP_SYS(umount2),                 QEMU_SECCOMP_SET_DEFAULT,
++      0, NULL, SCMP_ACT_TRAP },
+     { SCMP_SYS(kexec_load),             QEMU_SECCOMP_SET_DEFAULT,
+       0, NULL, SCMP_ACT_TRAP },
+     { SCMP_SYS(afs_syscall),            QEMU_SECCOMP_SET_DEFAULT,
+@@ -156,6 +158,16 @@ static const struct QemuSeccompSyscall denylist[] = {
+       0, NULL, SCMP_ACT_TRAP },
+     { SCMP_SYS(profil),                 QEMU_SECCOMP_SET_DEFAULT,
+       0, NULL, SCMP_ACT_TRAP },
++    { SCMP_SYS(kcmp),                   QEMU_SECCOMP_SET_DEFAULT,
++      0, NULL, SCMP_ACT_TRAP },
++    { SCMP_SYS(perf_event_open),        QEMU_SECCOMP_SET_DEFAULT,
++      0, NULL, SCMP_ACT_TRAP },
++    { SCMP_SYS(process_vm_readv),       QEMU_SECCOMP_SET_DEFAULT,
++      0, NULL, SCMP_ACT_TRAP },
++    { SCMP_SYS(process_vm_writev),      QEMU_SECCOMP_SET_DEFAULT,
++      0, NULL, SCMP_ACT_TRAP },
++    { SCMP_SYS(ptrace),                 QEMU_SECCOMP_SET_DEFAULT,
++      0, NULL, SCMP_ACT_TRAP },
+     { SCMP_SYS(putpmsg),                QEMU_SECCOMP_SET_DEFAULT,
+       0, NULL, SCMP_ACT_TRAP },
+     { SCMP_SYS(security),               QEMU_SECCOMP_SET_DEFAULT,
+@@ -179,6 +191,8 @@ static const struct QemuSeccompSyscall denylist[] = {
+       0, NULL, SCMP_ACT_TRAP },
+     { SCMP_SYS(get_kernel_syms),        QEMU_SECCOMP_SET_OBSOLETE,
+       0, NULL, SCMP_ACT_TRAP },
++    { SCMP_SYS(nfsservctl),             QEMU_SECCOMP_SET_OBSOLETE,
++      0, NULL, SCMP_ACT_TRAP },
+     { SCMP_SYS(query_module),           QEMU_SECCOMP_SET_OBSOLETE,
+       0, NULL, SCMP_ACT_TRAP },
+     { SCMP_SYS(sgetmask),               QEMU_SECCOMP_SET_OBSOLETE,
+@@ -219,6 +233,8 @@ static const struct QemuSeccompSyscall denylist[] = {
+       0, NULL, SCMP_ACT_TRAP },
+     { SCMP_SYS(execve),                 QEMU_SECCOMP_SET_SPAWN,
+       0, NULL, SCMP_ACT_TRAP },
++    { SCMP_SYS(execveat),               QEMU_SECCOMP_SET_SPAWN,
++      0, NULL, SCMP_ACT_TRAP },
+     { SCMP_SYS(clone),                  QEMU_SECCOMP_SET_SPAWN,
+       ARRAY_SIZE(clone_arg_none), clone_arg_none, SCMP_ACT_TRAP },
+     RULE_CLONE_FLAG(CLONE_VM),
+-- 
+2.41.0
+

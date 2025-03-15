@@ -1,0 +1,46 @@
+From f7c1ef20d7a5b5cd31b5b8e992ab310c797dfdb3 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Pierret=20=28fepitre=29?=
+ <frederic.pierret@qubes-os.org>
+Date: Mon, 1 Nov 2021 19:03:43 +0100
+Subject: [PATCH 14/21] pc_piix: init fw_cfg
+
+Adapted from https://github.com/QubesOS/qubes-vmm-xen-stubdom-linux/blob/2a814bd1edaf549ef9252eb6747aa6137abf9831/qemu/patches/fw_cfg-init.patch
+
+Author: HW42
+
+Contributors: marmarek, fepitre
+---
+ hw/i386/pc_piix.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/hw/i386/pc_piix.c b/hw/i386/pc_piix.c
+index ee46f1e1b3..e2d127cb4a 100644
+--- a/hw/i386/pc_piix.c
++++ b/hw/i386/pc_piix.c
+@@ -69,6 +69,7 @@
+ #include "hw/mem/nvdimm.h"
+ #include "hw/i386/acpi-build.h"
+ #include "kvm/kvm-cpu.h"
++#include "hw/i386/fw_cfg.h"
+ 
+ #define MAX_IDE_BUS 2
+ #define XEN_IOAPIC_NUM_PIRQS 128ULL
+@@ -254,6 +255,15 @@ static void pc_init1(MachineState *machine,
+         if (machine->kernel_filename != NULL) {
+             /* For xen HVM direct kernel boot, load linux here */
+             xen_load_linux(pcms);
++        } else {
++            pcmc->has_acpi_build = false;
++
++            FWCfgState *fw_cfg;
++
++            fw_cfg = fw_cfg_init_io(FW_CFG_IO_BASE);
++            rom_set_fw(fw_cfg);
++
++            x86ms->fw_cfg = fw_cfg;
+         }
+     }
+ 
+-- 
+2.41.0
+
