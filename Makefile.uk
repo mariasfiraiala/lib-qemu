@@ -59,6 +59,9 @@ UK_PREPARE += $(LIBQEMU_BUILD)/.prepared
 ################################################################################
 # Library includes
 ################################################################################
+CINCLUDES-$(CONFIG_LIBQEMU)  += -I$(LIBQEMU_BASE)/include
+CXXINCLUDES-$(CONFIG_LIBQEMU) += -I$(LIBQEMU_BASE)/include
+
 CINCLUDES-$(CONFIG_LIBQEMU)   += -I$(LIBQEMU)
 CXXINCLUDES-$(CONFIG_LIBQEMU) += -I$(LIBQEMU)
 
@@ -78,6 +81,7 @@ LIBQEMU_CXXFLAGS-y += $(LIBQEMU_SUPPRESS_FLAGS)
 
 CFLAGS-$(CONFIG_LIBQEMU) += $(LIBQEMU_HDRS_FLAGS-y)
 CXXFLAGS-$(CONFIG_LIBQEMU) += $(LIBQEMU_HDRS_FLAGS-y)
+
 ################################################################################
 # QEMU code -- one external Makefile per sub-lib
 ################################################################################
