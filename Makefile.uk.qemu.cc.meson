@@ -1,15 +1,15 @@
-LIBQEMU_MESON_CC-y += $(LIBQEMU)/build/pyvenv/bin/meson --internal exe --capture $(LIBQEMU)/build/config-poison.h -- $(LIBQEMU)/scripts/make-config-poison.sh $(LIBQEMU)/build/x86_64-softmmu-config-target.h $(LIBQEMU)/build/x86_64-softmmu-config-devices.h
+LIBQEMU_MESON_CC-y += $(LIBQEMU)/build/pyvenv/bin/meson --internal exe --capture $(LIBQEMU)/build/config-poison.h -- $(LIBQEMU)/scripts/make-config-poison.sh $(LIBQEMU)/build/x86_64-softmmu-config-target.h $(LIBQEMU)/build/x86_64-softmmu-config-devices.h && \
 
-LIBQEMU_MESON_CC += $(LIBQEMU)/build/pyvenv/bin/meson --internal vcstagger $(LIBQEMU)/subprojects/dtc/version_gen.h.in $(LIBQEMU)/subprojects/dtc/version_gen.h 1.6.0 $(LIBQEMU)/subprojects/dtc @VCS_TAG@ '(.*)' git describe --dirty=+ --always
+LIBQEMU_MESON_CC-y += $(LIBQEMU)/build/pyvenv/bin/meson --internal vcstagger $(LIBQEMU)/subprojects/dtc/version_gen.h.in $(LIBQEMU)/subprojects/dtc/version_gen.h 1.6.0 $(LIBQEMU)/subprojects/dtc @VCS_TAG@ '(.*)' git describe --dirty=+ --always && \
 
-LIBQEMU_MESON_CC += $(LIBQEMU)/build/pyvenv/bin/meson --internal exe --capture $(LIBQEMU)/build/qemu-version.h -- $(LIBQEMU)/scripts/qemu-version.sh $(LIBQEMU) '' 8.1.2
+LIBQEMU_MESON_CC-y += $(LIBQEMU)/build/pyvenv/bin/meson --internal exe --capture $(LIBQEMU)/build/qemu-version.h -- $(LIBQEMU)/scripts/qemu-version.sh $(LIBQEMU) '' 8.1.2 && \
 
-LIBQEMU_MESON_CC += $(LIBQEMU)/build/pyvenv/bin/meson --internal exe --capture $(LIBQEMU)/qemu-options.def -- $(LIBQEMU)/scripts/hxtool -h $(LIBQEMU)/qemu-options.hx
+LIBQEMU_MESON_CC-y += $(LIBQEMU)/build/pyvenv/bin/meson --internal exe --capture $(LIBQEMU)/qemu-options.def -- $(LIBQEMU)/scripts/hxtool -h $(LIBQEMU)/qemu-options.hx && \
 
-LIBQEMU_MESON_CC += $(LIBQEMU)/build/pyvenv/bin/meson --internal exe --capture $(LIBQEMU)/build/qemu-img-cmds.h -- $(LIBQEMU)/scripts/hxtool -h $(LIBQEMU)/qemu-img-cmds.hx
+LIBQEMU_MESON_CC-y += $(LIBQEMU)/build/pyvenv/bin/meson --internal exe --capture $(LIBQEMU)/build/qemu-img-cmds.h -- $(LIBQEMU)/scripts/hxtool -h $(LIBQEMU)/qemu-img-cmds.hx && \
 
-LIBQEMU_MESON_CC += $(LIBQEMU)/build/pyvenv/bin/meson --internal exe --capture $(LIBQEMU)/hmp-commands.h -- $(LIBQEMU)/scripts/hxtool -h $(LIBQEMU)/hmp-commands.hx
+LIBQEMU_MESON_CC-y += $(LIBQEMU)/build/pyvenv/bin/meson --internal exe --capture $(LIBQEMU)/hmp-commands.h -- $(LIBQEMU)/scripts/hxtool -h $(LIBQEMU)/hmp-commands.hx && \
 
-LIBQEMU_MESON_CC += $(LIBQEMU)/build/pyvenv/bin/meson --internal exe --capture $(LIBQEMU)/build/hmp-commands-info.h -- $(LIBQEMU)/scripts/hxtool -h $(LIBQEMU)/hmp-commands-info.hx
+LIBQEMU_MESON_CC-y += $(LIBQEMU)/build/pyvenv/bin/meson --internal exe --capture $(LIBQEMU)/build/hmp-commands-info.h -- $(LIBQEMU)/scripts/hxtool -h $(LIBQEMU)/hmp-commands-info.hx
 
 $(eval $(call _libqemu_custom_commands,MESON,$(LIBQEMU_MESON_CC-y)))

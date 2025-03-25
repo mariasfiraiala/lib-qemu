@@ -45,6 +45,6 @@ endef
 define _libqemu_custom_commands
 # Invoke the custom command 
 $(LIBQEMU_BUILD)/.custom_commands: $(LIBQEMU_BUILD)/.configured
-	$(foreach cc,$(2),$(call verbose_cmd,$(1),libqemu: $(notdir $@), \
-	cd $(LIBQEMU) && $(cc)))
+	$(call verbose_cmd,$(1),libqemu: $(notdir $@), \
+	cd $(LIBQEMU) && $(2) && touch $$@)
 endef
