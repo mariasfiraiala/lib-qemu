@@ -109,7 +109,7 @@ include $(LIBQEMU_BASE)/Makefile.uk.qemu.unknown
 # QEMU prepare
 ################################################################################
 # Run ./configure
-$(LIBQEMU_BUILD)/.configured: $(LIBQEMU_BUILD)/.origin
+$(LIBQEMU_BUILD)/.configured: $(LIBQEMU_BUILD)/.prepared
 	$(call verbose_cmd,CONFIG,libqemu: $(notdir $@), \
 	cd $(LIBQEMU) && ./configure \
         --cxx=/non-existent \
@@ -185,3 +185,6 @@ $(LIBQEMU_BUILD)/.configured: $(LIBQEMU_BUILD)/.origin
     && touch $@)
 
 UK_PREPARE += $(LIBQEMU_BUILD)/.configured
+
+include $(LIBQEMU_BASE)/Makefile.uk.qemu.cc.meson
+UK_PREPARE += $(LIBQEMU_BUILD)/.custom_commands

@@ -33,3 +33,18 @@ CXXINCLUDES-$(CONFIG_LIBQEMU) += -I$(LIBQEMU_BUILD)/include/$(1)/include
 # Append the sub library directory to the include path
 $(LIBQEMU_BUILD)/.prepared: $(subst $(LIBQEMU),$(LIBQEMU_BUILD)/include/$(1),$(2))
 endef
+
+#
+# Custom commands in libqemu
+#
+# @param $(1)
+#   The name of custom command.
+# @param $(2)
+#   The custom commands.
+#
+define _libqemu_custom_commands
+# Invoke the custom command 
+$(LIBQEMU_BUILD)/.custom_commands: $(LIBQEMU_BUILD)/.configured
+	$(foreach cc,$(2),$(call verbose_cmd,$(1),libqemu: $(notdir $@), \
+	cd $(LIBQEMU) && $(cc)))
+endef
