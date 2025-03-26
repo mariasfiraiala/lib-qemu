@@ -182,9 +182,6 @@ $(LIBQEMU_BUILD)/.configured: $(LIBQEMU_BUILD)/.prepared
         --prefix=/usr \
         --target-list=x86_64-softmmu \
         --without-default-features \
-    && touch $@)
+    && $(LIBQEMU_BASE)/helpers/custom_commands.sh $(LIBQEMU) && touch $@)
 
 UK_PREPARE += $(LIBQEMU_BUILD)/.configured
-
-include $(LIBQEMU_BASE)/Makefile.uk.qemu.cc.meson
-UK_PREPARE += $(LIBQEMU_BUILD)/.custom_commands

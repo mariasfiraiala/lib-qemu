@@ -25,24 +25,9 @@ with open("custom_commands", "r") as source_file:
     cc_lines = new_cc
 
 
-with open("Makefile.uk.qemu.cc.meson", "w+") as meson:
-    meson_cc = [m for m in cc_lines if "pyvenv/bin/meson" in m]
+with open("custom_commands.sh", "w+") as custom_commands:
+    for cc in cc_lines:
+        cc = cc.replace(" COMMAND = ", "").strip()
+        cc = cc + " && \\\n"
 
-    for cc in meson_cc:
-        cc = cc.replace(" COMMAND ", "LIBQEMU_MESON_CC-y +").strip()
-        cc = cc + " && \\\n\n"
-
-        meson.write(cc)
-
-    meson.write("$(eval $(call _libqemu_custom_commands,MESON,$(LIBQEMU_MESON_CC-y)))\n")
-
-with open("Makefile.uk.qemu.cc.python", "w+") as python:
-    python_cc = [p for p in cc_lines if "pyvenv/bin/python3" in p and "pyvenv/bin/meson" not in p]
-
-    for cc in python_cc:
-        cc = cc.replace(" COMMAND ", "LIBQEMU_PYTHON_CC-y +").strip()
-        cc = cc + " && \\\n\n"
-
-        python.write(cc)
-
-    python.write("$(eval $(call _libqemu_custom_commands,PYTHON,$(LIBQEMU_PYTHON_CC-y)))\n")
+        custom_commands.write(cc)
