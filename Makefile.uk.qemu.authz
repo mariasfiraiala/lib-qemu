@@ -1,7 +1,7 @@
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qemu/osdep.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/authz/base.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qemu/module.h
-LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/authztrace.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/authz/trace.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/authz/list.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qom/object_interfaces.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/qapi/qapi-visit-authz.h

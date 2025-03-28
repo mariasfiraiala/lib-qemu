@@ -1,5 +1,5 @@
-LIBQEMU_FDT_HDRS-y += $(LIBQEMU)/subprojects/dtc/libfdtlibfdt_env.h
-LIBQEMU_FDT_HDRS-y += $(LIBQEMU)/subprojects/dtc/libfdtlibfdt_internal.h
+LIBQEMU_FDT_HDRS-y += $(LIBQEMU)/subprojects/dtc/libfdt/libfdt_env.h
+LIBQEMU_FDT_HDRS-y += $(LIBQEMU)/subprojects/dtc/libfdt/libfdt_internal.h
 
 LIBQEMU_FDT_SRCS-y += $(LIBQEMU)/subprojects/dtc/libfdt/fdt.c
 LIBQEMU_FDT_SRCS-y += $(LIBQEMU)/subprojects/dtc/libfdt/fdt_addresses.c

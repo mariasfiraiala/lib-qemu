@@ -11,7 +11,7 @@ def extract_header(include, source_path):
     if "/" in include:
         include = f"include/{include}"
     else:
-        include = dirname(relpath(source_path, "..")) + include
+        include = dirname(relpath(source_path, "..")) + "/" + include
 
     return include
 
