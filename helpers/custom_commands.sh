@@ -281,19 +281,22 @@
 "$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/shader/texture-blit-vert.h -- "$1"/build/pyvenv/bin/python3 "$1"/scripts/shaderinclude.py "$1"/ui/shader/texture-blit.vert && \
 "$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/shader/texture-blit-flip-vert.h -- "$1"/build/pyvenv/bin/python3 "$1"/scripts/shaderinclude.py "$1"/ui/shader/texture-blit-flip.vert && \
 # TODO: Fix gen_semantics, which should be compiled first (build.ninja:3544)
-# "$1"/build/target/hexagon/gen_semantics "$1"/build/target/hexagon/semantics_generated.pyinc && \
+gcc -o "$1"/build/target/hexagon/gen_semantics "$1"/target/hexagon/gen_semantics.c && \
+"$1"/build/target/hexagon/gen_semantics "$1"/build/target/hexagon/semantics_generated.pyinc && \
 "$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_shortcode.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/shortcode_generated.h.inc && \
 "$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_tcg_func_table.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/tcg_func_table_generated.c.inc && \
 "$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_printinsn.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/printinsn_generated.h.inc && \
 "$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_op_regs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/op_regs_generated.h.inc && \
 "$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_op_attribs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/op_attribs_generated.h.inc && \
 "$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_opcodes_def.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/opcodes_def_generated.h.inc && \
+gcc -o "$1"/build/target/hexagon/gen_dectree_import "$1"/target/hexagon/gen_dectree_import.c -I"$1"/build/target/hexagon/ && \
 "$1"/build/target/hexagon/gen_dectree_import "$1"/build/target/hexagon/iset.py && \
 env PYTHONPATH="$1"/build/target/hexagon "$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/dectree.py "$1"/build/target/hexagon/dectree_generated.h.inc && \
 "$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_helper_protos.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/target/hexagon/gen_tcg.h "$1"/target/hexagon/gen_tcg_hvx.h "$1"/build/target/hexagon/helper_protos_generated.h.inc && \
 "$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_helper_funcs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/target/hexagon/gen_tcg.h "$1"/target/hexagon/gen_tcg_hvx.h "$1"/build/target/hexagon/helper_funcs_generated.c.inc && \
 "$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_tcg_funcs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/target/hexagon/gen_tcg.h "$1"/target/hexagon/gen_tcg_hvx.h "$1"/build/target/hexagon/tcg_funcs_generated.c.inc && \
 "$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_analyze_funcs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/target/hexagon/gen_tcg.h "$1"/target/hexagon/gen_tcg_hvx.h "$1"/build/target/hexagon/analyze_funcs_generated.c.inc && \
+gcc -o "$1"/build/target/s390x/gen-features "$1"/target/s390x/gen-features.c && \
 "$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/target/s390x/gen-features.h -- "$1"/build/target/s390x/gen-features && \
 "$1"/build/pyvenv/bin/python3 "$1"/block/../scripts/modules/module_block.py "$1"/build/block/module_block.h && \
 "$1"/build/pyvenv/bin/python3 "$1"/block/../scripts/block-coroutine-wrapper.py "$1"/build/block/block-gen.c "$1"/block/../include/block/block-io.h "$1"/block/../include/block/dirty-bitmap.h "$1"/block/../include/block/block_int-io.h "$1"/block/../include/block/block-global-state.h "$1"/block/../include/sysemu/block-backend-global-state.h "$1"/block/../include/sysemu/block-backend-io.h "$1"/block/coroutines.h && \
@@ -311,8 +314,5 @@ env PYTHONPATH="$1"/build/target/hexagon "$1"/build/pyvenv/bin/python3 "$1"/targ
 "$1"/build/pyvenv/bin/python3 "$1"/scripts/qapi-gen.py -o "$1"/build/tests -b -p test- "$1"/tests/qapi-schema/qapi-schema-test.json --suppress-tracing && \
 /usr/bin/true && \
 "$1"/build/pyvenv/bin/python3 "$1"/scripts/qapi-gen.py -o "$1"/build/tests/qapi-schema -p doc-good- "$1"/tests/qapi-schema/doc-good.json && \
-"$1"/tests/migration/initrd-stress.sh "$1"/build/tests/migration/initrd-stress.img tests/migration/stress && \
-"$1"/build/pyvenv/bin/meson test --no-rebuild --no-stdsplit --print-errorlogs && \
-"$1"/build/pyvenv/bin/meson test --benchmark --logbase benchmarklog --num-processes=1 --no-rebuild && \
 "$1"/build/pyvenv/bin/meson --internal uninstall && \
 "$1"/build/pyvenv/bin/meson --internal cleantrees "$1"/build/meson-private/cleantrees.dat
