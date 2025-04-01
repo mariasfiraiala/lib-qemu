@@ -1,3 +1,5 @@
+LIBQEMU_FDT_HDRS-y += $(LIBQEMU)/subprojects/dtc/libfdt/fdt.h
+LIBQEMU_FDT_HDRS-y += $(LIBQEMU)/subprojects/dtc/libfdt/libfdt.h
 LIBQEMU_FDT_HDRS-y += $(LIBQEMU)/subprojects/dtc/libfdt/libfdt_env.h
 LIBQEMU_FDT_HDRS-y += $(LIBQEMU)/subprojects/dtc/libfdt/libfdt_internal.h
 
@@ -11,4 +13,5 @@ LIBQEMU_FDT_SRCS-y += $(LIBQEMU)/subprojects/dtc/libfdt/fdt_rw.c
 LIBQEMU_FDT_SRCS-y += $(LIBQEMU)/subprojects/dtc/libfdt/fdt_strerror.c
 LIBQEMU_FDT_SRCS-y += $(LIBQEMU)/subprojects/dtc/libfdt/fdt_sw.c
 LIBQEMU_FDT_SRCS-y += $(LIBQEMU)/subprojects/dtc/libfdt/fdt_wip.c
+
 $(eval $(call _libqemu_import_lib,fdt,$(LIBQEMU_FDT_HDRS-y),$(LIBQEMU_FDT_SRCS-y)))

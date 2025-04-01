@@ -103,7 +103,6 @@ include $(LIBQEMU_BASE)/Makefile.uk.qemu.qemu-x86_64-softmmu
 include $(LIBQEMU_BASE)/Makefile.uk.qemu.qmp
 include $(LIBQEMU_BASE)/Makefile.uk.qemu.qom
 include $(LIBQEMU_BASE)/Makefile.uk.qemu.qos
-include $(LIBQEMU_BASE)/Makefile.uk.qemu.unknown
 
 ################################################################################
 # QEMU prepare

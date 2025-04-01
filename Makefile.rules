@@ -18,6 +18,21 @@ $(LIBQEMU_BUILD)/include/$(1)/%.h:
 	$(call verbose_cmd,HOSTLN,libqemu: $(1): $$(subst $(LIBQEMU_BUILD)/include/$(1)/,,$$@), \
 		ln -sf $$(subst $(LIBQEMU_BUILD)/include/$(1)/,$(LIBQEMU),$$@) $$@)
 
+$(LIBQEMU_BUILD)/include/$(1)/%.def:
+	$$(Q)mkdir -p $$(shell dirname $$@)
+	$(call verbose_cmd,HOSTLN,libqemu: $(1): $$(subst $(LIBQEMU_BUILD)/include/$(1)/,,$$@), \
+		ln -sf $$(subst $(LIBQEMU_BUILD)/include/$(1)/,$(LIBQEMU),$$@) $$@)
+
+$(LIBQEMU_BUILD)/include/$(1)/%.inc:
+	$$(Q)mkdir -p $$(shell dirname $$@)
+	$(call verbose_cmd,HOSTLN,libqemu: $(1): $$(subst $(LIBQEMU_BUILD)/include/$(1)/,,$$@), \
+		ln -sf $$(subst $(LIBQEMU_BUILD)/include/$(1)/,$(LIBQEMU),$$@) $$@)
+
+$(LIBQEMU_BUILD)/include/$(1)/%.xpm:
+	$$(Q)mkdir -p $$(shell dirname $$@)
+	$(call verbose_cmd,HOSTLN,libqemu: $(1): $$(subst $(LIBQEMU_BUILD)/include/$(1)/,,$$@), \
+		ln -sf $$(subst $(LIBQEMU_BUILD)/include/$(1)/,$(LIBQEMU),$$@) $$@)
+
 # includes for building libqemu
 LIBQEMU_$(call uc,$(1))_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/$(1)/src/internal
 LIBQEMU_$(call uc,$(1))_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/$(1)/src/$(1)
