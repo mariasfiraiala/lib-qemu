@@ -40,6 +40,7 @@ LIBQEMU_QOM_HDRS-y += $(LIBQEMU)/include/exec/memory_ldst_cached.h.inc
 LIBQEMU_QOM_HDRS-y += $(LIBQEMU)/include/exec/memory_ldst_phys.h.inc
 LIBQEMU_QOM_HDRS-y += $(LIBQEMU)/include/exec/poison.h
 LIBQEMU_QOM_HDRS-y += $(LIBQEMU)/include/exec/ramlist.h
+LIBQEMU_QOM_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_QOM_HDRS-y += $(LIBQEMU)/include/hw/hotplug.h
 LIBQEMU_QOM_HDRS-y += $(LIBQEMU)/include/hw/nvram/fw_cfg.h
 LIBQEMU_QOM_HDRS-y += $(LIBQEMU)/include/hw/qdev-core.h

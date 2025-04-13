@@ -46,6 +46,7 @@ LIBQEMU_HWCORE_HDRS-y += $(LIBQEMU)/include/exec/memory_ldst_cached.h.inc
 LIBQEMU_HWCORE_HDRS-y += $(LIBQEMU)/include/exec/memory_ldst_phys.h.inc
 LIBQEMU_HWCORE_HDRS-y += $(LIBQEMU)/include/exec/poison.h
 LIBQEMU_HWCORE_HDRS-y += $(LIBQEMU)/include/exec/ramlist.h
+LIBQEMU_HWCORE_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_HWCORE_HDRS-y += $(LIBQEMU)/include/hw/boards.h
 LIBQEMU_HWCORE_HDRS-y += $(LIBQEMU)/include/hw/clock.h
 LIBQEMU_HWCORE_HDRS-y += $(LIBQEMU)/include/hw/core/cpu.h

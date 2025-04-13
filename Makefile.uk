@@ -174,7 +174,6 @@ $(LIBQEMU_BUILD)/.configured: $(LIBQEMU_BUILD)/.prepared
         --disable-werror \
         --enable-pie \
         --enable-rng-none \
-        --enable-seccomp \
         --enable-trace-backends=log \
         --enable-xen \
         --enable-xen-pci-passthrough \

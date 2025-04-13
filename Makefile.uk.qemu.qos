@@ -41,6 +41,7 @@ LIBQEMU_QOS_HDRS-y += $(LIBQEMU)/include/exec/memory_ldst_cached.h.inc
 LIBQEMU_QOS_HDRS-y += $(LIBQEMU)/include/exec/memory_ldst_phys.h.inc
 LIBQEMU_QOS_HDRS-y += $(LIBQEMU)/include/exec/poison.h
 LIBQEMU_QOS_HDRS-y += $(LIBQEMU)/include/exec/ramlist.h
+LIBQEMU_QOS_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_QOS_HDRS-y += $(LIBQEMU)/include/hw/cxl/cxl.h
 LIBQEMU_QOS_HDRS-y += $(LIBQEMU)/include/hw/cxl/cxl_cdat.h
 LIBQEMU_QOS_HDRS-y += $(LIBQEMU)/include/hw/cxl/cxl_component.h

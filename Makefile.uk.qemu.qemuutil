@@ -326,6 +326,7 @@ LIBQEMU_QEMUUTIL_HDRS-y += $(LIBQEMU)/include/exec/memory_ldst_phys.h.inc
 LIBQEMU_QEMUUTIL_HDRS-y += $(LIBQEMU)/include/exec/poison.h
 LIBQEMU_QEMUUTIL_HDRS-y += $(LIBQEMU)/include/exec/ramlist.h
 LIBQEMU_QEMUUTIL_HDRS-y += $(LIBQEMU)/include/exec/replay-core.h
+LIBQEMU_QEMUUTIL_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_QEMUUTIL_HDRS-y += $(LIBQEMU)/include/hw/acpi/acpi-defs.h
 LIBQEMU_QEMUUTIL_HDRS-y += $(LIBQEMU)/include/hw/acpi/aml-build.h
 LIBQEMU_QEMUUTIL_HDRS-y += $(LIBQEMU)/include/hw/acpi/bios-linker-loader.h

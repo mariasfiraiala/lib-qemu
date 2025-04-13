@@ -42,6 +42,7 @@ LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/include/exec/ramlist.h
 LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/include/exec/replay-core.h
 LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/include/exec/tb-flush.h
 LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/include/gdbstub/syscalls.h
+LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/include/hw/boards.h
 LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/include/hw/core/cpu.h
 LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/include/hw/cpu/cluster.h

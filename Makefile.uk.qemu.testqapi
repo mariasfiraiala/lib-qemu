@@ -40,6 +40,7 @@ LIBQEMU_TESTQAPI_HDRS-y += $(LIBQEMU)/include/block/blockjob.h
 LIBQEMU_TESTQAPI_HDRS-y += $(LIBQEMU)/include/block/graph-lock.h
 LIBQEMU_TESTQAPI_HDRS-y += $(LIBQEMU)/include/exec/hwaddr.h
 LIBQEMU_TESTQAPI_HDRS-y += $(LIBQEMU)/include/exec/poison.h
+LIBQEMU_TESTQAPI_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_TESTQAPI_HDRS-y += $(LIBQEMU)/include/hw/hotplug.h
 LIBQEMU_TESTQAPI_HDRS-y += $(LIBQEMU)/include/hw/qdev-core.h
 LIBQEMU_TESTQAPI_HDRS-y += $(LIBQEMU)/include/hw/resettable.h

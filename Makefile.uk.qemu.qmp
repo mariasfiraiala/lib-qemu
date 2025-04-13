@@ -54,6 +54,7 @@ LIBQEMU_QMP_HDRS-y += $(LIBQEMU)/include/chardev/char-io.h
 LIBQEMU_QMP_HDRS-y += $(LIBQEMU)/include/chardev/char.h
 LIBQEMU_QMP_HDRS-y += $(LIBQEMU)/include/exec/hwaddr.h
 LIBQEMU_QMP_HDRS-y += $(LIBQEMU)/include/exec/poison.h
+LIBQEMU_QMP_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_QMP_HDRS-y += $(LIBQEMU)/include/hw/hotplug.h
 LIBQEMU_QMP_HDRS-y += $(LIBQEMU)/include/hw/qdev-core.h
 LIBQEMU_QMP_HDRS-y += $(LIBQEMU)/include/hw/resettable.h

@@ -46,6 +46,7 @@ LIBQEMU_CHARDEV_HDRS-y += $(LIBQEMU)/include/crypto/tlssession.h
 LIBQEMU_CHARDEV_HDRS-y += $(LIBQEMU)/include/exec/hwaddr.h
 LIBQEMU_CHARDEV_HDRS-y += $(LIBQEMU)/include/exec/poison.h
 LIBQEMU_CHARDEV_HDRS-y += $(LIBQEMU)/include/exec/replay-core.h
+LIBQEMU_CHARDEV_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_CHARDEV_HDRS-y += $(LIBQEMU)/include/hw/hotplug.h
 LIBQEMU_CHARDEV_HDRS-y += $(LIBQEMU)/include/hw/qdev-core.h
 LIBQEMU_CHARDEV_HDRS-y += $(LIBQEMU)/include/hw/resettable.h

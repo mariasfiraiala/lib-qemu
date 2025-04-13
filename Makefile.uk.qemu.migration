@@ -19,6 +19,7 @@ LIBQEMU_MIGRATION_HDRS-y += $(LIBQEMU)/include/exec/cpu-common.h
 LIBQEMU_MIGRATION_HDRS-y += $(LIBQEMU)/include/exec/hwaddr.h
 LIBQEMU_MIGRATION_HDRS-y += $(LIBQEMU)/include/exec/poison.h
 LIBQEMU_MIGRATION_HDRS-y += $(LIBQEMU)/include/fpu/softfloat-types.h
+LIBQEMU_MIGRATION_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_MIGRATION_HDRS-y += $(LIBQEMU)/include/hw/hotplug.h
 LIBQEMU_MIGRATION_HDRS-y += $(LIBQEMU)/include/hw/qdev-core.h
 LIBQEMU_MIGRATION_HDRS-y += $(LIBQEMU)/include/hw/qdev-properties-system.h

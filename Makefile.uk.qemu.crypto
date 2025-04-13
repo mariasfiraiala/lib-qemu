@@ -49,6 +49,7 @@ LIBQEMU_CRYPTO_HDRS-y += $(LIBQEMU)/include/crypto/tlscredspsk.h
 LIBQEMU_CRYPTO_HDRS-y += $(LIBQEMU)/include/crypto/tlscredsx509.h
 LIBQEMU_CRYPTO_HDRS-y += $(LIBQEMU)/include/crypto/tlssession.h
 LIBQEMU_CRYPTO_HDRS-y += $(LIBQEMU)/include/exec/poison.h
+LIBQEMU_CRYPTO_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_CRYPTO_HDRS-y += $(LIBQEMU)/include/qapi/error.h
 LIBQEMU_CRYPTO_HDRS-y += $(LIBQEMU)/include/qapi/util.h
 LIBQEMU_CRYPTO_HDRS-y += $(LIBQEMU)/include/qapi/visitor.h

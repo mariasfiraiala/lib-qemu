@@ -1,4 +1,8 @@
 config LIBQEMU
-	   bool "QEMU - an emulation library"
+	   bool "QEMU: An emulation library"
 	   default n
-	   depends on HAVE_LIBC
+	   depends on LIBMUSl
+	   depends on LIBGLIB
+	   depends on LIBPCRE2
+	   depends on LIBZLIB
+	   depends on LIBPIXMAN

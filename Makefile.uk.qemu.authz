@@ -22,6 +22,7 @@ LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/authz/simple.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/block/aio.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/block/graph-lock.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/exec/poison.h
+LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/hw/hotplug.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/hw/qdev-core.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/include/hw/resettable.h

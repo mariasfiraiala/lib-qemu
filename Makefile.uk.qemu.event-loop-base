@@ -15,6 +15,7 @@ LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/block/aio.h
 LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/block/graph-lock.h
 LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/block/thread-pool.h
 LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/exec/poison.h
+LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/hw/hotplug.h
 LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/hw/qdev-core.h
 LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/include/hw/resettable.h

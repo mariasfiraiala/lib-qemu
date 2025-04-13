@@ -18,6 +18,7 @@ LIBQEMU_IO_HDRS-y += $(LIBQEMU)/include/crypto/hash.h
 LIBQEMU_IO_HDRS-y += $(LIBQEMU)/include/crypto/tlscreds.h
 LIBQEMU_IO_HDRS-y += $(LIBQEMU)/include/crypto/tlssession.h
 LIBQEMU_IO_HDRS-y += $(LIBQEMU)/include/exec/poison.h
+LIBQEMU_IO_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_IO_HDRS-y += $(LIBQEMU)/include/hw/hotplug.h
 LIBQEMU_IO_HDRS-y += $(LIBQEMU)/include/hw/qdev-core.h
 LIBQEMU_IO_HDRS-y += $(LIBQEMU)/include/hw/resettable.h

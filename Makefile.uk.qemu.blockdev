@@ -70,6 +70,7 @@ LIBQEMU_BLOCKDEV_HDRS-y += $(LIBQEMU)/include/crypto/tlssession.h
 LIBQEMU_BLOCKDEV_HDRS-y += $(LIBQEMU)/include/exec/hwaddr.h
 LIBQEMU_BLOCKDEV_HDRS-y += $(LIBQEMU)/include/exec/poison.h
 LIBQEMU_BLOCKDEV_HDRS-y += $(LIBQEMU)/include/exec/replay-core.h
+LIBQEMU_BLOCKDEV_HDRS-y += $(LIBQEMU)/include/glib-compat.h
 LIBQEMU_BLOCKDEV_HDRS-y += $(LIBQEMU)/include/hw/block/block.h
 LIBQEMU_BLOCKDEV_HDRS-y += $(LIBQEMU)/include/hw/hotplug.h
 LIBQEMU_BLOCKDEV_HDRS-y += $(LIBQEMU)/include/hw/qdev-core.h
