@@ -253,4 +253,12 @@ LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/scsi/pr-manager-helper.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/scsi/pr-manager.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/scsi/utils.c
 
+LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block/block
+LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block/build
+LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block/include
+LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block/linux-headers
+LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block/nbd
+LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block/scsi
+LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block/trace
+
 $(eval $(call _libqemu_import_lib,block,$(LIBQEMU_BLOCK_HDRS-y),$(LIBQEMU_BLOCK_SRCS-y)))

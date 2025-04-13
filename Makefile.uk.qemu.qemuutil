@@ -1025,4 +1025,18 @@ LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/vfio-helpers.c
 LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/vhost-user-server.c
 LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/yank.c
 
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/build
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/host
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/include
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/linux-headers
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/migration
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/monitor
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/net
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/qapi
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/qobject
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/stubs
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/subprojects
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/trace
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/util
+
 $(eval $(call _libqemu_import_lib,qemuutil,$(LIBQEMU_QEMUUTIL_HDRS-y),$(LIBQEMU_QEMUUTIL_SRCS-y)))

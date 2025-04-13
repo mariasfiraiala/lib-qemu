@@ -132,4 +132,10 @@ LIBQEMU_QMP_SRCS-y += $(LIBQEMU)/monitor/qmp-cmds-control.c
 LIBQEMU_QMP_SRCS-y += $(LIBQEMU)/monitor/qmp.c
 LIBQEMU_QMP_SRCS-y += $(LIBQEMU)/qom/qom-qmp-cmds.c
 
+LIBQEMU_QMP_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qmp/build
+LIBQEMU_QMP_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qmp/include
+LIBQEMU_QMP_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qmp/linux-headers
+LIBQEMU_QMP_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qmp/monitor
+LIBQEMU_QMP_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qmp/trace
+
 $(eval $(call _libqemu_import_lib,qmp,$(LIBQEMU_QMP_HDRS-y),$(LIBQEMU_QMP_SRCS-y)))

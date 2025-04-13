@@ -94,4 +94,10 @@ LIBQEMU_IO_SRCS-y += $(LIBQEMU)/io/dns-resolver.c
 LIBQEMU_IO_SRCS-y += $(LIBQEMU)/io/net-listener.c
 LIBQEMU_IO_SRCS-y += $(LIBQEMU)/io/task.c
 
+LIBQEMU_IO_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/io/build
+LIBQEMU_IO_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/io/include
+LIBQEMU_IO_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/io/io
+LIBQEMU_IO_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/io/linux-headers
+LIBQEMU_IO_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/io/trace
+
 $(eval $(call _libqemu_import_lib,io,$(LIBQEMU_IO_HDRS-y),$(LIBQEMU_IO_SRCS-y)))

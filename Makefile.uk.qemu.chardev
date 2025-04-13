@@ -137,4 +137,9 @@ LIBQEMU_CHARDEV_SRCS-y += $(LIBQEMU)/chardev/char-stdio.c
 LIBQEMU_CHARDEV_SRCS-y += $(LIBQEMU)/chardev/char-udp.c
 LIBQEMU_CHARDEV_SRCS-y += $(LIBQEMU)/chardev/char.c
 
+LIBQEMU_CHARDEV_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/chardev/build
+LIBQEMU_CHARDEV_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/chardev/chardev
+LIBQEMU_CHARDEV_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/chardev/include
+LIBQEMU_CHARDEV_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/chardev/linux-headers
+
 $(eval $(call _libqemu_import_lib,chardev,$(LIBQEMU_CHARDEV_HDRS-y),$(LIBQEMU_CHARDEV_SRCS-y)))

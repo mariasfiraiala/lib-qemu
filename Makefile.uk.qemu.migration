@@ -101,4 +101,10 @@ LIBQEMU_MIGRATION_SRCS-y += $(LIBQEMU)/migration/vmstate.c
 LIBQEMU_MIGRATION_SRCS-y += $(LIBQEMU)/migration/xbzrle.c
 LIBQEMU_MIGRATION_SRCS-y += $(LIBQEMU)/migration/yank_functions.c
 
+LIBQEMU_MIGRATION_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/migration/build
+LIBQEMU_MIGRATION_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/migration/include
+LIBQEMU_MIGRATION_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/migration/linux-headers
+LIBQEMU_MIGRATION_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/migration/migration
+LIBQEMU_MIGRATION_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/migration/trace
+
 $(eval $(call _libqemu_import_lib,migration,$(LIBQEMU_MIGRATION_HDRS-y),$(LIBQEMU_MIGRATION_SRCS-y)))

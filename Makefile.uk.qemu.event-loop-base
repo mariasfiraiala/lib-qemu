@@ -55,4 +55,8 @@ LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/linux-headers/linux/stddef.h
 
 LIBQEMU_EVENT-LOOP-BASE_SRCS-y += $(LIBQEMU)/event-loop-base.c
 
+LIBQEMU_EVENT-LOOP-BASE_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/event-loop-base/build
+LIBQEMU_EVENT-LOOP-BASE_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/event-loop-base/include
+LIBQEMU_EVENT-LOOP-BASE_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/event-loop-base/linux-headers
+
 $(eval $(call _libqemu_import_lib,event-loop-base,$(LIBQEMU_EVENT-LOOP-BASE_HDRS-y),$(LIBQEMU_EVENT-LOOP-BASE_SRCS-y)))

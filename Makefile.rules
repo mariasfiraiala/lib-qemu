@@ -34,9 +34,6 @@ $(LIBQEMU_BUILD)/include/$(1)/%.xpm:
 		ln -sf $$(subst $(LIBQEMU_BUILD)/include/$(1)/,$(LIBQEMU),$$@) $$@)
 
 # includes for building libqemu
-LIBQEMU_$(call uc,$(1))_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/$(1)/src/internal
-LIBQEMU_$(call uc,$(1))_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/$(1)/src/$(1)
-LIBQEMU_$(call uc,$(1))_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/$(1)/include
 LIBQEMU_SRCS-y += $(3)
 LIBQEMU_CINCLUDES-y += $$(LIBQEMU_$(call uc,$(1))_INCLUDES-y)
 LIBQEMU_CXXINCLUDES-y += $$(LIBQEMU_$(call uc,$(1))_INCLUDES-y)

@@ -805,4 +805,18 @@ LIBQEMU_QEMU-X86_64-SOFTMMU_SRCS-y += $(LIBQEMU)/target/i386/tcg/tcg-stub.c
 LIBQEMU_QEMU-X86_64-SOFTMMU_SRCS-y += $(LIBQEMU)/target/i386/xsave_helper.c
 LIBQEMU_QEMU-X86_64-SOFTMMU_SRCS-y += $(LIBQEMU)/trace/control-target.c
 
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/accel
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/build
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/dump
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/ebpf
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/hw
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/include
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/linux-headers
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/migration
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/monitor
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/softmmu
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/target
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/trace
+
 $(eval $(call _libqemu_import_lib,qemu-x86_64-softmmu,$(LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y),$(LIBQEMU_QEMU-X86_64-SOFTMMU_SRCS-y)))

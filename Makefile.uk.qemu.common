@@ -1237,4 +1237,26 @@ LIBQEMU_COMMON_SRCS-y += $(LIBQEMU)/ui/ui-qmp-cmds.c
 LIBQEMU_COMMON_SRCS-y += $(LIBQEMU)/ui/util.c
 LIBQEMU_COMMON_SRCS-y += $(LIBQEMU)/ui/vnc-stubs.c
 
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/accel
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/audio
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/build
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/chardev
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/disas
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/dump
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/ebpf
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/fsdev
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/gdbstub
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/hw
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/include
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/linux-headers
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/migration
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/monitor
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/net
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/softmmu
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/subprojects
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/target
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/trace
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/ui
+LIBQEMU_COMMON_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/common/util
+
 $(eval $(call _libqemu_import_lib,common,$(LIBQEMU_COMMON_HDRS-y),$(LIBQEMU_COMMON_SRCS-y)))

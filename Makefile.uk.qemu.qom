@@ -126,4 +126,10 @@ LIBQEMU_QOM_SRCS-y += $(LIBQEMU)/qom/object.c
 LIBQEMU_QOM_SRCS-y += $(LIBQEMU)/qom/object_interfaces.c
 LIBQEMU_QOM_SRCS-y += $(LIBQEMU)/qom/qom-qobject.c
 
+LIBQEMU_QOM_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qom/build
+LIBQEMU_QOM_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qom/include
+LIBQEMU_QOM_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qom/linux-headers
+LIBQEMU_QOM_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qom/qom
+LIBQEMU_QOM_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qom/trace
+
 $(eval $(call _libqemu_import_lib,qom,$(LIBQEMU_QOM_HDRS-y),$(LIBQEMU_QOM_SRCS-y)))

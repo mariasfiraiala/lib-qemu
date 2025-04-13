@@ -76,4 +76,10 @@ LIBQEMU_AUTHZ_SRCS-y += $(LIBQEMU)/authz/list.c
 LIBQEMU_AUTHZ_SRCS-y += $(LIBQEMU)/authz/listfile.c
 LIBQEMU_AUTHZ_SRCS-y += $(LIBQEMU)/authz/simple.c
 
+LIBQEMU_AUTHZ_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/authz/authz
+LIBQEMU_AUTHZ_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/authz/build
+LIBQEMU_AUTHZ_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/authz/include
+LIBQEMU_AUTHZ_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/authz/linux-headers
+LIBQEMU_AUTHZ_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/authz/trace
+
 $(eval $(call _libqemu_import_lib,authz,$(LIBQEMU_AUTHZ_HDRS-y),$(LIBQEMU_AUTHZ_SRCS-y)))

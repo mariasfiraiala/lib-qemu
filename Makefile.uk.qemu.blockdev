@@ -177,4 +177,11 @@ LIBQEMU_BLOCKDEV_SRCS-y += $(LIBQEMU)/job-qmp.c
 LIBQEMU_BLOCKDEV_SRCS-y += $(LIBQEMU)/nbd/server.c
 LIBQEMU_BLOCKDEV_SRCS-y += $(LIBQEMU)/os-posix.c
 
+LIBQEMU_BLOCKDEV_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/blockdev/block
+LIBQEMU_BLOCKDEV_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/blockdev/build
+LIBQEMU_BLOCKDEV_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/blockdev/include
+LIBQEMU_BLOCKDEV_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/blockdev/linux-headers
+LIBQEMU_BLOCKDEV_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/blockdev/nbd
+LIBQEMU_BLOCKDEV_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/blockdev/trace
+
 $(eval $(call _libqemu_import_lib,blockdev,$(LIBQEMU_BLOCKDEV_HDRS-y),$(LIBQEMU_BLOCKDEV_SRCS-y)))

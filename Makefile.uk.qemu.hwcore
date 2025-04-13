@@ -130,4 +130,10 @@ LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/reset.c
 LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/resettable.c
 LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/vmstate-if.c
 
+LIBQEMU_HWCORE_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/hwcore/build
+LIBQEMU_HWCORE_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/hwcore/hw
+LIBQEMU_HWCORE_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/hwcore/include
+LIBQEMU_HWCORE_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/hwcore/linux-headers
+LIBQEMU_HWCORE_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/hwcore/trace
+
 $(eval $(call _libqemu_import_lib,hwcore,$(LIBQEMU_HWCORE_HDRS-y),$(LIBQEMU_HWCORE_SRCS-y)))

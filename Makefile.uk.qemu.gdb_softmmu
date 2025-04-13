@@ -117,4 +117,10 @@ LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/trace/event-internal.h
 LIBQEMU_GDB_SOFTMMU_SRCS-y += $(LIBQEMU)/gdbstub/gdbstub.c
 LIBQEMU_GDB_SOFTMMU_SRCS-y += $(LIBQEMU)/gdbstub/softmmu.c
 
+LIBQEMU_GDB_SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/gdb_softmmu/build
+LIBQEMU_GDB_SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/gdb_softmmu/gdbstub
+LIBQEMU_GDB_SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/gdb_softmmu/include
+LIBQEMU_GDB_SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/gdb_softmmu/linux-headers
+LIBQEMU_GDB_SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/gdb_softmmu/trace
+
 $(eval $(call _libqemu_import_lib,gdb_softmmu,$(LIBQEMU_GDB_SOFTMMU_HDRS-y),$(LIBQEMU_GDB_SOFTMMU_SRCS-y)))

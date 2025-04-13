@@ -242,4 +242,11 @@ LIBQEMU_QOS_SRCS-y += $(LIBQEMU)/tests/qtest/libqos/virtio.c
 LIBQEMU_QOS_SRCS-y += $(LIBQEMU)/tests/qtest/libqos/x86_64_pc-machine.c
 LIBQEMU_QOS_SRCS-y += $(LIBQEMU)/tests/qtest/libqtest.c
 
+LIBQEMU_QOS_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qos/build
+LIBQEMU_QOS_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qos/ebpf
+LIBQEMU_QOS_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qos/hw
+LIBQEMU_QOS_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qos/include
+LIBQEMU_QOS_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qos/linux-headers
+LIBQEMU_QOS_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qos/tests
+
 $(eval $(call _libqemu_import_lib,qos,$(LIBQEMU_QOS_HDRS-y),$(LIBQEMU_QOS_SRCS-y)))
