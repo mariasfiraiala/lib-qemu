@@ -1,5 +1,4 @@
 LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/accel/accel-softmmu.h
-LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/build/config-host.h
 LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/build/hmp-commands-info.h
 LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/build/hmp-commands.h
 LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y += $(LIBQEMU)/build/linux-headers/asm/bitsperlong.h

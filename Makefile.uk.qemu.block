@@ -6,7 +6,6 @@ LIBQEMU_BLOCK_HDRS-y += $(LIBQEMU)/block/crypto.h
 LIBQEMU_BLOCK_HDRS-y += $(LIBQEMU)/block/qcow2.h
 LIBQEMU_BLOCK_HDRS-y += $(LIBQEMU)/block/trace.h
 LIBQEMU_BLOCK_HDRS-y += $(LIBQEMU)/build/block/module_block.h
-LIBQEMU_BLOCK_HDRS-y += $(LIBQEMU)/build/config-host.h
 LIBQEMU_BLOCK_HDRS-y += $(LIBQEMU)/build/config-poison.h
 LIBQEMU_BLOCK_HDRS-y += $(LIBQEMU)/build/linux-headers/asm/bitsperlong.h
 LIBQEMU_BLOCK_HDRS-y += $(LIBQEMU)/build/linux-headers/asm/unistd.h

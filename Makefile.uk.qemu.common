@@ -7,7 +7,6 @@ LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/audio/mixeng.h
 LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/audio/mixeng_template.h
 LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/audio/rate_template.h
 LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/audio/trace.h
-LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/build/config-host.h
 LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/build/config-poison.h
 LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/build/linux-headers/asm/bitsperlong.h
 LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/build/linux-headers/asm/unistd.h
