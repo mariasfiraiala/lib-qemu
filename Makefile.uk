@@ -73,7 +73,9 @@ LIBQEMU_SUPPRESS_FLAGS += -Wno-unused-parameter   \
 		  -Wno-unused-value               \
 		  -Wno-unused-function            \
 		  -Wno-missing-field-initializers \
-		  -Wno-implicit-fallthrough
+		  -Wno-implicit-fallthrough \
+          -Wno-implicit-function-declaration \
+          -Wno-int-conversion
 
 LIBQEMU_CFLAGS-y   += $(LIBQEMU_SUPPRESS_FLAGS) \
 		      -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
