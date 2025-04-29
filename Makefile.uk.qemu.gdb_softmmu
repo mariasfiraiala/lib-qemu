@@ -1,4 +1,3 @@
-LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/build/config-poison.h
 LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/build/linux-headers/asm/bitsperlong.h
 LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/build/qapi/qapi-builtin-types.h
 LIBQEMU_GDB_SOFTMMU_HDRS-y += $(LIBQEMU)/build/qapi/qapi-types-block-core.h

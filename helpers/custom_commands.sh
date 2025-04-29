@@ -1,4 +1,3 @@
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/config-poison.h -- "$1"/scripts/make-config-poison.sh "$1"/build/x86_64-softmmu-config-target.h "$1"/build/x86_64-softmmu-config-devices.h && \
 "$1"/build/pyvenv/bin/meson --internal vcstagger "$1"/subprojects/dtc/version_gen.h.in "$1"/build/subprojects/dtc/version_gen.h "$1"/build/1.6.0 "$1"/subprojects/dtc @VCS_TAG@ "$1"/build/'(.*)' git describe --dirty=+ --always && \
 "$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/qemu-version.h -- "$1"/scripts/qemu-version.sh "$1" '' "$1"/build/8.1.2 && \
 "$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/qemu-options.def -- "$1"/scripts/hxtool -h "$1"/qemu-options.hx && \

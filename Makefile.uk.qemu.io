@@ -1,4 +1,3 @@
-LIBQEMU_IO_HDRS-y += $(LIBQEMU)/build/config-poison.h
 LIBQEMU_IO_HDRS-y += $(LIBQEMU)/build/linux-headers/asm/bitsperlong.h
 LIBQEMU_IO_HDRS-y += $(LIBQEMU)/build/qapi/qapi-builtin-types.h
 LIBQEMU_IO_HDRS-y += $(LIBQEMU)/build/qapi/qapi-builtin-visit.h

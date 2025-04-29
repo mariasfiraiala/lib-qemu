@@ -1,5 +1,4 @@
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/authz/trace.h
-LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/build/config-poison.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/build/linux-headers/asm/bitsperlong.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/build/qapi/qapi-builtin-types.h
 LIBQEMU_AUTHZ_HDRS-y += $(LIBQEMU)/build/qapi/qapi-builtin-visit.h

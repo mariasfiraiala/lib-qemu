@@ -1,4 +1,3 @@
-LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/build/config-poison.h
 LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/build/linux-headers/asm/bitsperlong.h
 LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/build/qapi/qapi-builtin-types.h
 LIBQEMU_EVENT-LOOP-BASE_HDRS-y += $(LIBQEMU)/build/qapi/qapi-types-authz.h
