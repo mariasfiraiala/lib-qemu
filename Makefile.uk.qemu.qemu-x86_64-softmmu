@@ -755,6 +755,7 @@ LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64
 LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/monitor
 LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/softmmu
 LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/target
+LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/target/i386
 LIBQEMU_QEMU-X86_64-SOFTMMU_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemu-x86_64-softmmu/trace
 
 $(eval $(call _libqemu_import_lib,qemu-x86_64-softmmu,$(LIBQEMU_QEMU-X86_64-SOFTMMU_HDRS-y),$(LIBQEMU_QEMU-X86_64-SOFTMMU_SRCS-y)))
