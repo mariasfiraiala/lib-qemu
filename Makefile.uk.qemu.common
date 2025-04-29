@@ -964,7 +964,6 @@ LIBQEMU_COMMON_SRCS-y += $(LIBQEMU)/hw/scsi/mptconfig.c
 LIBQEMU_COMMON_SRCS-y += $(LIBQEMU)/hw/scsi/mptendian.c
 LIBQEMU_COMMON_SRCS-y += $(LIBQEMU)/hw/scsi/mptsas.c
 LIBQEMU_COMMON_SRCS-y += $(LIBQEMU)/hw/scsi/scsi-bus.c
-LIBQEMU_COMMON_SRCS-y += $(LIBQEMU)/hw/scsi/scsi-disk.c
 LIBQEMU_COMMON_SRCS-y += $(LIBQEMU)/hw/scsi/scsi-generic.c
 LIBQEMU_COMMON_SRCS-y += $(LIBQEMU)/hw/scsi/virtio-scsi-dataplane.c
 LIBQEMU_COMMON_SRCS-y += $(LIBQEMU)/hw/scsi/vmw_pvscsi.c

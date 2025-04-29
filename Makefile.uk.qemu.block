@@ -247,8 +247,7 @@ LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/nbd/client-connection.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/nbd/client.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/nbd/common.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/qemu-io-cmds.c
-LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/scsi/pr-manager-helper.c
-LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/scsi/pr-manager.c
+LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/scsi/pr-manager-stub.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/scsi/utils.c
 
 LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block/block
