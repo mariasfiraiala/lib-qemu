@@ -5,25 +5,11 @@
 
 #pragma once
 
-#define CONFIG_AC97 1
-
 #define CONFIG_ACPI 1
-
-#define CONFIG_ACPI_CPU_HOTPLUG 1
-
-#define CONFIG_ACPI_CXL 1
-
-#define CONFIG_ACPI_ERST 1
-
-#define CONFIG_ACPI_HMAT 1
 
 #define CONFIG_ACPI_HW_REDUCED 1
 
 #define CONFIG_ACPI_ICH9 1
-
-#define CONFIG_ACPI_MEMORY_HOTPLUG 1
-
-#define CONFIG_ACPI_NVDIMM 1
 
 #define CONFIG_ACPI_PCI 1
 
@@ -41,8 +27,6 @@
 
 #define CONFIG_ACPI_X86 1
 
-#define CONFIG_ADLIB 1
-
 #define CONFIG_AHCI 1
 
 #define CONFIG_AHCI_ICH9 1
@@ -53,13 +37,7 @@
 
 #define CONFIG_APM 1
 
-#define CONFIG_APPLESMC 1
-
-#define CONFIG_ATI_VGA 1
-
 #define CONFIG_BITBANG_I2C 1
-
-#define CONFIG_BOCHS_DISPLAY 1
 
 #define CONFIG_CAN_BUS 1
 
@@ -71,49 +49,15 @@
 
 #define CONFIG_CAN_SJA1000 1
 
-#define CONFIG_CS4231A 1
-
-#define CONFIG_CXL 1
-
-#define CONFIG_CXL_MEM_DEVICE 1
-
-#define CONFIG_DDC 1
-
-#define CONFIG_DIMM 1
-
 #define CONFIG_E1000E_PCI_EXPRESS 1
 
 #define CONFIG_E1000_PCI 1
-
-#define CONFIG_EDID 1
-
-#define CONFIG_EDU 1
-
-#define CONFIG_EEPRO100_PCI 1
-
-#define CONFIG_ES1370 1
-
-#define CONFIG_ESP 1
-
-#define CONFIG_ESP_PCI 1
-
-#define CONFIG_FDC 1
-
-#define CONFIG_FDC_ISA 1
 
 #define CONFIG_FW_CFG_DMA 1
 
 #define CONFIG_GENERIC_LOADER 1
 
-#define CONFIG_GUS 1
-
-#define CONFIG_HDA 1
-
-#define CONFIG_HPET 1
-
 #define CONFIG_I2C 1
-
-#define CONFIG_I440FX 1
 
 #define CONFIG_I8254 1
 
@@ -142,14 +86,6 @@
 #define CONFIG_IOH3420 1
 
 #define CONFIG_IPACK 1
-
-#define CONFIG_IPMI 1
-
-#define CONFIG_IPMI_EXTERN 1
-
-#define CONFIG_IPMI_LOCAL 1
-
-#define CONFIG_IPMI_SSIF 1
 
 #define CONFIG_ISAPC 1
 
@@ -189,15 +125,7 @@
 
 #define CONFIG_NMC93XX_EEPROM 1
 
-#define CONFIG_NVDIMM 1
-
-#define CONFIG_NVME_PCI 1
-
-#define CONFIG_PAM 1
-
 #define CONFIG_PARALLEL 1
-
-#define CONFIG_PC 1
 
 #define CONFIG_PCI 1
 
@@ -210,10 +138,6 @@
 #define CONFIG_PCI_EXPRESS 1
 
 #define CONFIG_PCI_EXPRESS_GENERIC_BRIDGE 1
-
-#define CONFIG_PCI_EXPRESS_Q35 1
-
-#define CONFIG_PCI_I440FX 1
 
 #define CONFIG_PCI_IPMI_BT 1
 
@@ -245,10 +169,6 @@
 
 #define CONFIG_PVPANIC_PCI 1
 
-#define CONFIG_PXB 1
-
-#define CONFIG_Q35 1
-
 #define CONFIG_ROCKER 1
 
 #define CONFIG_RTL8139_PCI 1
@@ -274,12 +194,6 @@
 #define CONFIG_SMBIOS 1
 
 #define CONFIG_SMBUS 1
-
-#define CONFIG_SMBUS_EEPROM 1
-
-#define CONFIG_TEST_DEVICES 1
-
-#define CONFIG_TULIP 1
 
 #define CONFIG_USB 1
 
@@ -325,20 +239,6 @@
 
 #define CONFIG_USB_XHCI_SYSBUS 1
 
-#define CONFIG_VFIO 1
-
-#define CONFIG_VFIO_IGD 1
-
-#define CONFIG_VFIO_PCI 1
-
-#define CONFIG_VGA 1
-
-#define CONFIG_VGA_CIRRUS 1
-
-#define CONFIG_VGA_ISA 1
-
-#define CONFIG_VGA_PCI 1
-
 #define CONFIG_VIRTIO 1
 
 #define CONFIG_VIRTIO_BALLOON 1
@@ -346,8 +246,6 @@
 #define CONFIG_VIRTIO_BLK 1
 
 #define CONFIG_VIRTIO_CRYPTO 1
-
-#define CONFIG_VIRTIO_GPU 1
 
 #define CONFIG_VIRTIO_INPUT 1
 
@@ -377,13 +275,9 @@
 
 #define CONFIG_VIRTIO_SERIAL 1
 
-#define CONFIG_VIRTIO_VGA 1
-
 #define CONFIG_VMMOUSE 1
 
 #define CONFIG_VMPORT 1
-
-#define CONFIG_VMWARE_VGA 1
 
 #define CONFIG_VMW_PVSCSI_SCSI_PCI 1
 
@@ -391,15 +285,9 @@
 
 #define CONFIG_VTD 1
 
-#define CONFIG_WDT_IB6300ESB 1
-
-#define CONFIG_WDT_IB700 1
-
 #define CONFIG_X86_IOMMU 1
 
 #define CONFIG_XEN_BUS 1
-
-#define CONFIG_XEN_IGD_PASSTHROUGH 1
 
 #define CONFIG_XIO3130 1
 
