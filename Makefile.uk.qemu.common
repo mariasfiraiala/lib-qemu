@@ -738,7 +738,6 @@ LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/softmmu/trace.h
 LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/subprojects/dtc/libfdt/fdt.h
 LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/subprojects/dtc/libfdt/libfdt.h
 LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/subprojects/dtc/libfdt/libfdt_env.h
-LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/target/arm/cpu-qom.h
 LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/trace/control-internal.h
 LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/trace/control.h
 LIBQEMU_COMMON_HDRS-y += $(LIBQEMU)/trace/event-internal.h
