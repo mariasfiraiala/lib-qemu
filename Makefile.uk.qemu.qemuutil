@@ -1017,10 +1017,10 @@ LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/timed-average.c
 LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/transactions.c
 LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/unicode.c
 LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/uri.c
-LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/userfaultfd.c
+# LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/userfaultfd.c
 LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/uuid.c
 # LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/vfio-helpers.c
-LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/vhost-user-server.c
+# LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/vhost-user-server.c
 LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/yank.c
 
 LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/build
