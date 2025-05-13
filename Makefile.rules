@@ -40,7 +40,9 @@ LIBQEMU_CXXINCLUDES-y += $$(LIBQEMU_$(call uc,$(1))_INCLUDES-y)
 
 # includes for using libqemu
 CINCLUDES-$(CONFIG_LIBQEMU) += -I$(LIBQEMU_BUILD)/include/$(1)/include
+CINCLUDES-$(CONFIG_LIBQEMU) += -I$(LIBQEMU_CINCLUDES-y)
 CXXINCLUDES-$(CONFIG_LIBQEMU) += -I$(LIBQEMU_BUILD)/include/$(1)/include
+CXXINCLUDES-$(CONFIG_LIBQEMU) += -I$(LIBQEMU_CXXINCLUDES-y)
 
 # Append the sub library directory to the include path
 $(LIBQEMU_BUILD)/.prepared: $(subst $(LIBQEMU),$(LIBQEMU_BUILD)/include/$(1),$(2))

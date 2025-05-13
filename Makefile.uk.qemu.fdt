@@ -15,5 +15,6 @@ LIBQEMU_FDT_SRCS-y += $(LIBQEMU)/subprojects/dtc/libfdt/fdt_sw.c
 LIBQEMU_FDT_SRCS-y += $(LIBQEMU)/subprojects/dtc/libfdt/fdt_wip.c
 
 LIBQEMU_FDT_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/fdt/subprojects
+LIBQEMU_FDT_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/fdt/subprojects/dtc/libfdt
 
 $(eval $(call _libqemu_import_lib,fdt,$(LIBQEMU_FDT_HDRS-y),$(LIBQEMU_FDT_SRCS-y)))
