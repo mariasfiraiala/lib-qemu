@@ -168,11 +168,11 @@ LIBQEMU_BLOCKDEV_HDRS-y += $(LIBQEMU)/trace/control.h
 LIBQEMU_BLOCKDEV_HDRS-y += $(LIBQEMU)/trace/event-internal.h
 
 LIBQEMU_BLOCKDEV_SRCS-y += $(LIBQEMU)/block/export/export.c
-LIBQEMU_BLOCKDEV_SRCS-y += $(LIBQEMU)/blockdev-nbd.c
+# LIBQEMU_BLOCKDEV_SRCS-y += $(LIBQEMU)/blockdev-nbd.c
 LIBQEMU_BLOCKDEV_SRCS-y += $(LIBQEMU)/blockdev.c
 LIBQEMU_BLOCKDEV_SRCS-y += $(LIBQEMU)/iothread.c
 LIBQEMU_BLOCKDEV_SRCS-y += $(LIBQEMU)/job-qmp.c
-LIBQEMU_BLOCKDEV_SRCS-y += $(LIBQEMU)/nbd/server.c
+# LIBQEMU_BLOCKDEV_SRCS-y += $(LIBQEMU)/nbd/server.c
 LIBQEMU_BLOCKDEV_SRCS-y += $(LIBQEMU)/os-posix.c
 
 LIBQEMU_BLOCKDEV_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/blockdev/block
