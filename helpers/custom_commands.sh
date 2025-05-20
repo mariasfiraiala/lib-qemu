@@ -1,317 +1,317 @@
-"$1"/build/pyvenv/bin/meson --internal vcstagger "$1"/subprojects/dtc/version_gen.h.in "$1"/build/subprojects/dtc/version_gen.h "$1"/build/1.6.0 "$1"/subprojects/dtc @VCS_TAG@ "$1"/build/'(.*)' git describe --dirty=+ --always && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/qemu-version.h -- "$1"/scripts/qemu-version.sh "$1" '' "$1"/build/8.1.2 && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/qemu-options.def -- "$1"/scripts/hxtool -h "$1"/qemu-options.hx && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/qemu-img-cmds.h -- "$1"/scripts/hxtool -h "$1"/qemu-img-cmds.hx && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/hmp-commands.h -- "$1"/scripts/hxtool -h "$1"/hmp-commands.hx && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/hmp-commands-info.h -- "$1"/scripts/hxtool -h "$1"/hmp-commands-info.hx && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/qapi-gen.py -o qapi -b "$1"/qapi/qapi-schema.json && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=root --format=h "$1"/./trace-events "$1"/build/trace/trace-root.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=root --format=c "$1"/./trace-events "$1"/build/trace/trace-root.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=crypto --format=h "$1"/crypto/trace-events "$1"/build/trace/trace-crypto.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=crypto --format=c "$1"/crypto/trace-events "$1"/build/trace/trace-crypto.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi --format=h "$1"/qapi/trace-events "$1"/build/trace/trace-qapi.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi --format=c "$1"/qapi/trace-events "$1"/build/trace/trace-qapi.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qom --format=h "$1"/qom/trace-events "$1"/build/trace/trace-qom.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qom --format=c "$1"/qom/trace-events "$1"/build/trace/trace-qom.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=monitor --format=h "$1"/monitor/trace-events "$1"/build/trace/trace-monitor.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=monitor --format=c "$1"/monitor/trace-events "$1"/build/trace/trace-monitor.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=util --format=h "$1"/util/trace-events "$1"/build/trace/trace-util.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=util --format=c "$1"/util/trace-events "$1"/build/trace/trace-util.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=gdbstub --format=h "$1"/gdbstub/trace-events "$1"/build/trace/trace-gdbstub.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=gdbstub --format=c "$1"/gdbstub/trace-events "$1"/build/trace/trace-gdbstub.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=authz --format=h "$1"/authz/trace-events "$1"/build/trace/trace-authz.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=authz --format=c "$1"/authz/trace-events "$1"/build/trace/trace-authz.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=block --format=h "$1"/block/trace-events "$1"/build/trace/trace-block.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=block --format=c "$1"/block/trace-events "$1"/build/trace/trace-block.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=io --format=h "$1"/io/trace-events "$1"/build/trace/trace-io.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=io --format=c "$1"/io/trace-events "$1"/build/trace/trace-io.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=nbd --format=h "$1"/nbd/trace-events "$1"/build/trace/trace-nbd.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=nbd --format=c "$1"/nbd/trace-events "$1"/build/trace/trace-nbd.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=scsi --format=h "$1"/scsi/trace-events "$1"/build/trace/trace-scsi.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=scsi --format=c "$1"/scsi/trace-events "$1"/build/trace/trace-scsi.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=accel_kvm --format=h "$1"/accel/kvm/trace-events "$1"/build/trace/trace-accel_kvm.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=accel_kvm --format=c "$1"/accel/kvm/trace-events "$1"/build/trace/trace-accel_kvm.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=audio --format=h "$1"/audio/trace-events "$1"/build/trace/trace-audio.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=audio --format=c "$1"/audio/trace-events "$1"/build/trace/trace-audio.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=backends --format=h "$1"/backends/trace-events "$1"/build/trace/trace-backends.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=backends --format=c "$1"/backends/trace-events "$1"/build/trace/trace-backends.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=backends_tpm --format=h "$1"/backends/tpm/trace-events "$1"/build/trace/trace-backends_tpm.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=backends_tpm --format=c "$1"/backends/tpm/trace-events "$1"/build/trace/trace-backends_tpm.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=chardev --format=h "$1"/chardev/trace-events "$1"/build/trace/trace-chardev.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=chardev --format=c "$1"/chardev/trace-events "$1"/build/trace/trace-chardev.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=ebpf --format=h "$1"/ebpf/trace-events "$1"/build/trace/trace-ebpf.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=ebpf --format=c "$1"/ebpf/trace-events "$1"/build/trace/trace-ebpf.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_9pfs --format=h "$1"/hw/9pfs/trace-events "$1"/build/trace/trace-hw_9pfs.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_9pfs --format=c "$1"/hw/9pfs/trace-events "$1"/build/trace/trace-hw_9pfs.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_acpi --format=h "$1"/hw/acpi/trace-events "$1"/build/trace/trace-hw_acpi.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_acpi --format=c "$1"/hw/acpi/trace-events "$1"/build/trace/trace-hw_acpi.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_adc --format=h "$1"/hw/adc/trace-events "$1"/build/trace/trace-hw_adc.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_adc --format=c "$1"/hw/adc/trace-events "$1"/build/trace/trace-hw_adc.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_alpha --format=h "$1"/hw/alpha/trace-events "$1"/build/trace/trace-hw_alpha.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_alpha --format=c "$1"/hw/alpha/trace-events "$1"/build/trace/trace-hw_alpha.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_arm --format=h "$1"/hw/arm/trace-events "$1"/build/trace/trace-hw_arm.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_arm --format=c "$1"/hw/arm/trace-events "$1"/build/trace/trace-hw_arm.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_audio --format=h "$1"/hw/audio/trace-events "$1"/build/trace/trace-hw_audio.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_audio --format=c "$1"/hw/audio/trace-events "$1"/build/trace/trace-hw_audio.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_block --format=h "$1"/hw/block/trace-events "$1"/build/trace/trace-hw_block.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_block --format=c "$1"/hw/block/trace-events "$1"/build/trace/trace-hw_block.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_block_dataplane --format=h "$1"/hw/block/dataplane/trace-events "$1"/build/trace/trace-hw_block_dataplane.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_block_dataplane --format=c "$1"/hw/block/dataplane/trace-events "$1"/build/trace/trace-hw_block_dataplane.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_char --format=h "$1"/hw/char/trace-events "$1"/build/trace/trace-hw_char.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_char --format=c "$1"/hw/char/trace-events "$1"/build/trace/trace-hw_char.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_display --format=h "$1"/hw/display/trace-events "$1"/build/trace/trace-hw_display.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_display --format=c "$1"/hw/display/trace-events "$1"/build/trace/trace-hw_display.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_dma --format=h "$1"/hw/dma/trace-events "$1"/build/trace/trace-hw_dma.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_dma --format=c "$1"/hw/dma/trace-events "$1"/build/trace/trace-hw_dma.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_hyperv --format=h "$1"/hw/hyperv/trace-events "$1"/build/trace/trace-hw_hyperv.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_hyperv --format=c "$1"/hw/hyperv/trace-events "$1"/build/trace/trace-hw_hyperv.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i2c --format=h "$1"/hw/i2c/trace-events "$1"/build/trace/trace-hw_i2c.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i2c --format=c "$1"/hw/i2c/trace-events "$1"/build/trace/trace-hw_i2c.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i386 --format=h "$1"/hw/i386/trace-events "$1"/build/trace/trace-hw_i386.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i386 --format=c "$1"/hw/i386/trace-events "$1"/build/trace/trace-hw_i386.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i386_xen --format=h "$1"/hw/i386/xen/trace-events "$1"/build/trace/trace-hw_i386_xen.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i386_xen --format=c "$1"/hw/i386/xen/trace-events "$1"/build/trace/trace-hw_i386_xen.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i386_kvm --format=h "$1"/hw/i386/kvm/trace-events "$1"/build/trace/trace-hw_i386_kvm.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i386_kvm --format=c "$1"/hw/i386/kvm/trace-events "$1"/build/trace/trace-hw_i386_kvm.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_ide --format=h "$1"/hw/ide/trace-events "$1"/build/trace/trace-hw_ide.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_ide --format=c "$1"/hw/ide/trace-events "$1"/build/trace/trace-hw_ide.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_input --format=h "$1"/hw/input/trace-events "$1"/build/trace/trace-hw_input.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_input --format=c "$1"/hw/input/trace-events "$1"/build/trace/trace-hw_input.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_intc --format=h "$1"/hw/intc/trace-events "$1"/build/trace/trace-hw_intc.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_intc --format=c "$1"/hw/intc/trace-events "$1"/build/trace/trace-hw_intc.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_isa --format=h "$1"/hw/isa/trace-events "$1"/build/trace/trace-hw_isa.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_isa --format=c "$1"/hw/isa/trace-events "$1"/build/trace/trace-hw_isa.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_mem --format=h "$1"/hw/mem/trace-events "$1"/build/trace/trace-hw_mem.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_mem --format=c "$1"/hw/mem/trace-events "$1"/build/trace/trace-hw_mem.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_mips --format=h "$1"/hw/mips/trace-events "$1"/build/trace/trace-hw_mips.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_mips --format=c "$1"/hw/mips/trace-events "$1"/build/trace/trace-hw_mips.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_misc --format=h "$1"/hw/misc/trace-events "$1"/build/trace/trace-hw_misc.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_misc --format=c "$1"/hw/misc/trace-events "$1"/build/trace/trace-hw_misc.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_misc_macio --format=h "$1"/hw/misc/macio/trace-events "$1"/build/trace/trace-hw_misc_macio.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_misc_macio --format=c "$1"/hw/misc/macio/trace-events "$1"/build/trace/trace-hw_misc_macio.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_net --format=h "$1"/hw/net/trace-events "$1"/build/trace/trace-hw_net.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_net --format=c "$1"/hw/net/trace-events "$1"/build/trace/trace-hw_net.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_net_can --format=h "$1"/hw/net/can/trace-events "$1"/build/trace/trace-hw_net_can.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_net_can --format=c "$1"/hw/net/can/trace-events "$1"/build/trace/trace-hw_net_can.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_nubus --format=h "$1"/hw/nubus/trace-events "$1"/build/trace/trace-hw_nubus.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_nubus --format=c "$1"/hw/nubus/trace-events "$1"/build/trace/trace-hw_nubus.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_nvme --format=h "$1"/hw/nvme/trace-events "$1"/build/trace/trace-hw_nvme.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_nvme --format=c "$1"/hw/nvme/trace-events "$1"/build/trace/trace-hw_nvme.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_nvram --format=h "$1"/hw/nvram/trace-events "$1"/build/trace/trace-hw_nvram.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_nvram --format=c "$1"/hw/nvram/trace-events "$1"/build/trace/trace-hw_nvram.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_pci --format=h "$1"/hw/pci/trace-events "$1"/build/trace/trace-hw_pci.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_pci --format=c "$1"/hw/pci/trace-events "$1"/build/trace/trace-hw_pci.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_pci_host --format=h "$1"/hw/pci-host/trace-events "$1"/build/trace/trace-hw_pci_host.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_pci_host --format=c "$1"/hw/pci-host/trace-events "$1"/build/trace/trace-hw_pci_host.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_ppc --format=h "$1"/hw/ppc/trace-events "$1"/build/trace/trace-hw_ppc.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_ppc --format=c "$1"/hw/ppc/trace-events "$1"/build/trace/trace-hw_ppc.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_rdma --format=h "$1"/hw/rdma/trace-events "$1"/build/trace/trace-hw_rdma.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_rdma --format=c "$1"/hw/rdma/trace-events "$1"/build/trace/trace-hw_rdma.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_rdma_vmw --format=h "$1"/hw/rdma/vmw/trace-events "$1"/build/trace/trace-hw_rdma_vmw.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_rdma_vmw --format=c "$1"/hw/rdma/vmw/trace-events "$1"/build/trace/trace-hw_rdma_vmw.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_rtc --format=h "$1"/hw/rtc/trace-events "$1"/build/trace/trace-hw_rtc.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_rtc --format=c "$1"/hw/rtc/trace-events "$1"/build/trace/trace-hw_rtc.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_s390x --format=h "$1"/hw/s390x/trace-events "$1"/build/trace/trace-hw_s390x.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_s390x --format=c "$1"/hw/s390x/trace-events "$1"/build/trace/trace-hw_s390x.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_scsi --format=h "$1"/hw/scsi/trace-events "$1"/build/trace/trace-hw_scsi.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_scsi --format=c "$1"/hw/scsi/trace-events "$1"/build/trace/trace-hw_scsi.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sd --format=h "$1"/hw/sd/trace-events "$1"/build/trace/trace-hw_sd.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sd --format=c "$1"/hw/sd/trace-events "$1"/build/trace/trace-hw_sd.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sh4 --format=h "$1"/hw/sh4/trace-events "$1"/build/trace/trace-hw_sh4.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sh4 --format=c "$1"/hw/sh4/trace-events "$1"/build/trace/trace-hw_sh4.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sparc --format=h "$1"/hw/sparc/trace-events "$1"/build/trace/trace-hw_sparc.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sparc --format=c "$1"/hw/sparc/trace-events "$1"/build/trace/trace-hw_sparc.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sparc64 --format=h "$1"/hw/sparc64/trace-events "$1"/build/trace/trace-hw_sparc64.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sparc64 --format=c "$1"/hw/sparc64/trace-events "$1"/build/trace/trace-hw_sparc64.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_ssi --format=h "$1"/hw/ssi/trace-events "$1"/build/trace/trace-hw_ssi.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_ssi --format=c "$1"/hw/ssi/trace-events "$1"/build/trace/trace-hw_ssi.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_timer --format=h "$1"/hw/timer/trace-events "$1"/build/trace/trace-hw_timer.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_timer --format=c "$1"/hw/timer/trace-events "$1"/build/trace/trace-hw_timer.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_tpm --format=h "$1"/hw/tpm/trace-events "$1"/build/trace/trace-hw_tpm.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_tpm --format=c "$1"/hw/tpm/trace-events "$1"/build/trace/trace-hw_tpm.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_usb --format=h "$1"/hw/usb/trace-events "$1"/build/trace/trace-hw_usb.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_usb --format=c "$1"/hw/usb/trace-events "$1"/build/trace/trace-hw_usb.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_vfio --format=h "$1"/hw/vfio/trace-events "$1"/build/trace/trace-hw_vfio.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_vfio --format=c "$1"/hw/vfio/trace-events "$1"/build/trace/trace-hw_vfio.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_virtio --format=h "$1"/hw/virtio/trace-events "$1"/build/trace/trace-hw_virtio.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_virtio --format=c "$1"/hw/virtio/trace-events "$1"/build/trace/trace-hw_virtio.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_watchdog --format=h "$1"/hw/watchdog/trace-events "$1"/build/trace/trace-hw_watchdog.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_watchdog --format=c "$1"/hw/watchdog/trace-events "$1"/build/trace/trace-hw_watchdog.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_xen --format=h "$1"/hw/xen/trace-events "$1"/build/trace/trace-hw_xen.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_xen --format=c "$1"/hw/xen/trace-events "$1"/build/trace/trace-hw_xen.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_gpio --format=h "$1"/hw/gpio/trace-events "$1"/build/trace/trace-hw_gpio.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_gpio --format=c "$1"/hw/gpio/trace-events "$1"/build/trace/trace-hw_gpio.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=migration --format=h "$1"/migration/trace-events "$1"/build/trace/trace-migration.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=migration --format=c "$1"/migration/trace-events "$1"/build/trace/trace-migration.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=net --format=h "$1"/net/trace-events "$1"/build/trace/trace-net.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=net --format=c "$1"/net/trace-events "$1"/build/trace/trace-net.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=softmmu --format=h "$1"/softmmu/trace-events "$1"/build/trace/trace-softmmu.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=softmmu --format=c "$1"/softmmu/trace-events "$1"/build/trace/trace-softmmu.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=ui --format=h "$1"/ui/trace-events "$1"/build/trace/trace-ui.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=ui --format=c "$1"/ui/trace-events "$1"/build/trace/trace-ui.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_remote --format=h "$1"/hw/remote/trace-events "$1"/build/trace/trace-hw_remote.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_remote --format=c "$1"/hw/remote/trace-events "$1"/build/trace/trace-hw_remote.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=accel_tcg --format=h "$1"/accel/tcg/trace-events "$1"/build/trace/trace-accel_tcg.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=accel_tcg --format=c "$1"/accel/tcg/trace-events "$1"/build/trace/trace-accel_tcg.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_core --format=h "$1"/hw/core/trace-events "$1"/build/trace/trace-hw_core.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=hw_core --format=c "$1"/hw/core/trace-events "$1"/build/trace/trace-hw_core.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_arm --format=h "$1"/target/arm/trace-events "$1"/build/trace/trace-target_arm.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_arm --format=c "$1"/target/arm/trace-events "$1"/build/trace/trace-target_arm.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_arm_hvf --format=h "$1"/target/arm/hvf/trace-events "$1"/build/trace/trace-target_arm_hvf.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_arm_hvf --format=c "$1"/target/arm/hvf/trace-events "$1"/build/trace/trace-target_arm_hvf.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_hppa --format=h "$1"/target/hppa/trace-events "$1"/build/trace/trace-target_hppa.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_hppa --format=c "$1"/target/hppa/trace-events "$1"/build/trace/trace-target_hppa.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_i386 --format=h "$1"/target/i386/trace-events "$1"/build/trace/trace-target_i386.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_i386 --format=c "$1"/target/i386/trace-events "$1"/build/trace/trace-target_i386.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_i386_kvm --format=h "$1"/target/i386/kvm/trace-events "$1"/build/trace/trace-target_i386_kvm.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_i386_kvm --format=c "$1"/target/i386/kvm/trace-events "$1"/build/trace/trace-target_i386_kvm.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_mips_tcg --format=h "$1"/target/mips/tcg/trace-events "$1"/build/trace/trace-target_mips_tcg.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_mips_tcg --format=c "$1"/target/mips/tcg/trace-events "$1"/build/trace/trace-target_mips_tcg.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_nios2 --format=h "$1"/target/nios2/trace-events "$1"/build/trace/trace-target_nios2.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_nios2 --format=c "$1"/target/nios2/trace-events "$1"/build/trace/trace-target_nios2.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_ppc --format=h "$1"/target/ppc/trace-events "$1"/build/trace/trace-target_ppc.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_ppc --format=c "$1"/target/ppc/trace-events "$1"/build/trace/trace-target_ppc.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_riscv --format=h "$1"/target/riscv/trace-events "$1"/build/trace/trace-target_riscv.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_riscv --format=c "$1"/target/riscv/trace-events "$1"/build/trace/trace-target_riscv.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_s390x --format=h "$1"/target/s390x/trace-events "$1"/build/trace/trace-target_s390x.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_s390x --format=c "$1"/target/s390x/trace-events "$1"/build/trace/trace-target_s390x.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_s390x_kvm --format=h "$1"/target/s390x/kvm/trace-events "$1"/build/trace/trace-target_s390x_kvm.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_s390x_kvm --format=c "$1"/target/s390x/kvm/trace-events "$1"/build/trace/trace-target_s390x_kvm.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_sparc --format=h "$1"/target/sparc/trace-events "$1"/build/trace/trace-target_sparc.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=target_sparc --format=c "$1"/target/sparc/trace-events "$1"/build/trace/trace-target_sparc.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/qapi-gen.py -o "$1"/build/qapi -b "$1"/qapi/qapi-schema.json
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_authz_trace_events --format=h "$1"/build/qapi/qapi-commands-authz.trace-events "$1"/build/trace/trace-qapi_commands_authz_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_authz_trace_events --format=c "$1"/build/qapi/qapi-commands-authz.trace-events "$1"/build/trace/trace-qapi_commands_authz_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_block_trace_events --format=h "$1"/build/qapi/qapi-commands-block.trace-events "$1"/build/trace/trace-qapi_commands_block_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_block_trace_events --format=c "$1"/build/qapi/qapi-commands-block.trace-events "$1"/build/trace/trace-qapi_commands_block_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_block_core_trace_events --format=h "$1"/build/qapi/qapi-commands-block-core.trace-events "$1"/build/trace/trace-qapi_commands_block_core_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_block_core_trace_events --format=c "$1"/build/qapi/qapi-commands-block-core.trace-events "$1"/build/trace/trace-qapi_commands_block_core_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_block_export_trace_events --format=h "$1"/build/qapi/qapi-commands-block-export.trace-events "$1"/build/trace/trace-qapi_commands_block_export_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_block_export_trace_events --format=c "$1"/build/qapi/qapi-commands-block-export.trace-events "$1"/build/trace/trace-qapi_commands_block_export_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_char_trace_events --format=h "$1"/build/qapi/qapi-commands-char.trace-events "$1"/build/trace/trace-qapi_commands_char_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_char_trace_events --format=c "$1"/build/qapi/qapi-commands-char.trace-events "$1"/build/trace/trace-qapi_commands_char_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_common_trace_events --format=h "$1"/build/qapi/qapi-commands-common.trace-events "$1"/build/trace/trace-qapi_commands_common_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_common_trace_events --format=c "$1"/build/qapi/qapi-commands-common.trace-events "$1"/build/trace/trace-qapi_commands_common_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_compat_trace_events --format=h "$1"/build/qapi/qapi-commands-compat.trace-events "$1"/build/trace/trace-qapi_commands_compat_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_compat_trace_events --format=c "$1"/build/qapi/qapi-commands-compat.trace-events "$1"/build/trace/trace-qapi_commands_compat_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_control_trace_events --format=h "$1"/build/qapi/qapi-commands-control.trace-events "$1"/build/trace/trace-qapi_commands_control_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_control_trace_events --format=c "$1"/build/qapi/qapi-commands-control.trace-events "$1"/build/trace/trace-qapi_commands_control_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_crypto_trace_events --format=h "$1"/build/qapi/qapi-commands-crypto.trace-events "$1"/build/trace/trace-qapi_commands_crypto_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_crypto_trace_events --format=c "$1"/build/qapi/qapi-commands-crypto.trace-events "$1"/build/trace/trace-qapi_commands_crypto_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_cxl_trace_events --format=h "$1"/build/qapi/qapi-commands-cxl.trace-events "$1"/build/trace/trace-qapi_commands_cxl_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_cxl_trace_events --format=c "$1"/build/qapi/qapi-commands-cxl.trace-events "$1"/build/trace/trace-qapi_commands_cxl_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_dump_trace_events --format=h "$1"/build/qapi/qapi-commands-dump.trace-events "$1"/build/trace/trace-qapi_commands_dump_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_dump_trace_events --format=c "$1"/build/qapi/qapi-commands-dump.trace-events "$1"/build/trace/trace-qapi_commands_dump_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_error_trace_events --format=h "$1"/build/qapi/qapi-commands-error.trace-events "$1"/build/trace/trace-qapi_commands_error_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_error_trace_events --format=c "$1"/build/qapi/qapi-commands-error.trace-events "$1"/build/trace/trace-qapi_commands_error_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_introspect_trace_events --format=h "$1"/build/qapi/qapi-commands-introspect.trace-events "$1"/build/trace/trace-qapi_commands_introspect_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_introspect_trace_events --format=c "$1"/build/qapi/qapi-commands-introspect.trace-events "$1"/build/trace/trace-qapi_commands_introspect_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_job_trace_events --format=h "$1"/build/qapi/qapi-commands-job.trace-events "$1"/build/trace/trace-qapi_commands_job_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_job_trace_events --format=c "$1"/build/qapi/qapi-commands-job.trace-events "$1"/build/trace/trace-qapi_commands_job_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_machine_trace_events --format=h "$1"/build/qapi/qapi-commands-machine.trace-events "$1"/build/trace/trace-qapi_commands_machine_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_machine_trace_events --format=c "$1"/build/qapi/qapi-commands-machine.trace-events "$1"/build/trace/trace-qapi_commands_machine_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_migration_trace_events --format=h "$1"/build/qapi/qapi-commands-migration.trace-events "$1"/build/trace/trace-qapi_commands_migration_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_migration_trace_events --format=c "$1"/build/qapi/qapi-commands-migration.trace-events "$1"/build/trace/trace-qapi_commands_migration_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_misc_trace_events --format=h "$1"/build/qapi/qapi-commands-misc.trace-events "$1"/build/trace/trace-qapi_commands_misc_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_misc_trace_events --format=c "$1"/build/qapi/qapi-commands-misc.trace-events "$1"/build/trace/trace-qapi_commands_misc_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_net_trace_events --format=h "$1"/build/qapi/qapi-commands-net.trace-events "$1"/build/trace/trace-qapi_commands_net_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_net_trace_events --format=c "$1"/build/qapi/qapi-commands-net.trace-events "$1"/build/trace/trace-qapi_commands_net_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_pragma_trace_events --format=h "$1"/build/qapi/qapi-commands-pragma.trace-events "$1"/build/trace/trace-qapi_commands_pragma_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_pragma_trace_events --format=c "$1"/build/qapi/qapi-commands-pragma.trace-events "$1"/build/trace/trace-qapi_commands_pragma_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_qom_trace_events --format=h "$1"/build/qapi/qapi-commands-qom.trace-events "$1"/build/trace/trace-qapi_commands_qom_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_qom_trace_events --format=c "$1"/build/qapi/qapi-commands-qom.trace-events "$1"/build/trace/trace-qapi_commands_qom_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_replay_trace_events --format=h "$1"/build/qapi/qapi-commands-replay.trace-events "$1"/build/trace/trace-qapi_commands_replay_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_replay_trace_events --format=c "$1"/build/qapi/qapi-commands-replay.trace-events "$1"/build/trace/trace-qapi_commands_replay_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_run_state_trace_events --format=h "$1"/build/qapi/qapi-commands-run-state.trace-events "$1"/build/trace/trace-qapi_commands_run_state_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_run_state_trace_events --format=c "$1"/build/qapi/qapi-commands-run-state.trace-events "$1"/build/trace/trace-qapi_commands_run_state_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_sockets_trace_events --format=h "$1"/build/qapi/qapi-commands-sockets.trace-events "$1"/build/trace/trace-qapi_commands_sockets_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_sockets_trace_events --format=c "$1"/build/qapi/qapi-commands-sockets.trace-events "$1"/build/trace/trace-qapi_commands_sockets_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_stats_trace_events --format=h "$1"/build/qapi/qapi-commands-stats.trace-events "$1"/build/trace/trace-qapi_commands_stats_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_stats_trace_events --format=c "$1"/build/qapi/qapi-commands-stats.trace-events "$1"/build/trace/trace-qapi_commands_stats_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_trace_trace_events --format=h "$1"/build/qapi/qapi-commands-trace.trace-events "$1"/build/trace/trace-qapi_commands_trace_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_trace_trace_events --format=c "$1"/build/qapi/qapi-commands-trace.trace-events "$1"/build/trace/trace-qapi_commands_trace_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_transaction_trace_events --format=h "$1"/build/qapi/qapi-commands-transaction.trace-events "$1"/build/trace/trace-qapi_commands_transaction_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_transaction_trace_events --format=c "$1"/build/qapi/qapi-commands-transaction.trace-events "$1"/build/trace/trace-qapi_commands_transaction_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_virtio_trace_events --format=h "$1"/build/qapi/qapi-commands-virtio.trace-events "$1"/build/trace/trace-qapi_commands_virtio_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_virtio_trace_events --format=c "$1"/build/qapi/qapi-commands-virtio.trace-events "$1"/build/trace/trace-qapi_commands_virtio_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_yank_trace_events --format=h "$1"/build/qapi/qapi-commands-yank.trace-events "$1"/build/trace/trace-qapi_commands_yank_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_yank_trace_events --format=c "$1"/build/qapi/qapi-commands-yank.trace-events "$1"/build/trace/trace-qapi_commands_yank_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_acpi_trace_events --format=h "$1"/build/qapi/qapi-commands-acpi.trace-events "$1"/build/trace/trace-qapi_commands_acpi_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_acpi_trace_events --format=c "$1"/build/qapi/qapi-commands-acpi.trace-events "$1"/build/trace/trace-qapi_commands_acpi_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_audio_trace_events --format=h "$1"/build/qapi/qapi-commands-audio.trace-events "$1"/build/trace/trace-qapi_commands_audio_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_audio_trace_events --format=c "$1"/build/qapi/qapi-commands-audio.trace-events "$1"/build/trace/trace-qapi_commands_audio_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_cryptodev_trace_events --format=h "$1"/build/qapi/qapi-commands-cryptodev.trace-events "$1"/build/trace/trace-qapi_commands_cryptodev_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_cryptodev_trace_events --format=c "$1"/build/qapi/qapi-commands-cryptodev.trace-events "$1"/build/trace/trace-qapi_commands_cryptodev_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_qdev_trace_events --format=h "$1"/build/qapi/qapi-commands-qdev.trace-events "$1"/build/trace/trace-qapi_commands_qdev_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_qdev_trace_events --format=c "$1"/build/qapi/qapi-commands-qdev.trace-events "$1"/build/trace/trace-qapi_commands_qdev_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_pci_trace_events --format=h "$1"/build/qapi/qapi-commands-pci.trace-events "$1"/build/trace/trace-qapi_commands_pci_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_pci_trace_events --format=c "$1"/build/qapi/qapi-commands-pci.trace-events "$1"/build/trace/trace-qapi_commands_pci_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_rdma_trace_events --format=h "$1"/build/qapi/qapi-commands-rdma.trace-events "$1"/build/trace/trace-qapi_commands_rdma_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_rdma_trace_events --format=c "$1"/build/qapi/qapi-commands-rdma.trace-events "$1"/build/trace/trace-qapi_commands_rdma_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_rocker_trace_events --format=h "$1"/build/qapi/qapi-commands-rocker.trace-events "$1"/build/trace/trace-qapi_commands_rocker_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_rocker_trace_events --format=c "$1"/build/qapi/qapi-commands-rocker.trace-events "$1"/build/trace/trace-qapi_commands_rocker_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_tpm_trace_events --format=h "$1"/build/qapi/qapi-commands-tpm.trace-events "$1"/build/trace/trace-qapi_commands_tpm_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_tpm_trace_events --format=c "$1"/build/qapi/qapi-commands-tpm.trace-events "$1"/build/trace/trace-qapi_commands_tpm_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_ui_trace_events --format=h "$1"/build/qapi/qapi-commands-ui.trace-events "$1"/build/trace/trace-qapi_commands_ui_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_ui_trace_events --format=c "$1"/build/qapi/qapi-commands-ui.trace-events "$1"/build/trace/trace-qapi_commands_ui_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_machine_target_trace_events --format=h "$1"/build/qapi/qapi-commands-machine-target.trace-events "$1"/build/trace/trace-qapi_commands_machine_target_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_machine_target_trace_events --format=c "$1"/build/qapi/qapi-commands-machine-target.trace-events "$1"/build/trace/trace-qapi_commands_machine_target_trace_events.c && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_misc_target_trace_events --format=h "$1"/build/qapi/qapi-commands-misc-target.trace-events "$1"/build/trace/trace-qapi_commands_misc_target_trace_events.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_misc_target_trace_events --format=c "$1"/build/qapi/qapi-commands-misc-target.trace-events "$1"/build/trace/trace-qapi_commands_misc_target_trace_events.c && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/trace/trace-events-all -- /usr/bin/cat "$1"/./trace-events "$1"/crypto/trace-events "$1"/qapi/trace-events "$1"/qom/trace-events "$1"/monitor/trace-events "$1"/util/trace-events "$1"/gdbstub/trace-events "$1"/authz/trace-events "$1"/block/trace-events "$1"/io/trace-events "$1"/nbd/trace-events "$1"/scsi/trace-events "$1"/accel/kvm/trace-events "$1"/audio/trace-events "$1"/backends/trace-events "$1"/backends/tpm/trace-events "$1"/chardev/trace-events "$1"/ebpf/trace-events "$1"/hw/9pfs/trace-events "$1"/hw/acpi/trace-events "$1"/hw/adc/trace-events "$1"/hw/alpha/trace-events "$1"/hw/arm/trace-events "$1"/hw/audio/trace-events "$1"/hw/block/trace-events "$1"/hw/block/dataplane/trace-events "$1"/hw/char/trace-events "$1"/hw/display/trace-events "$1"/hw/dma/trace-events "$1"/hw/hyperv/trace-events "$1"/hw/i2c/trace-events "$1"/hw/i386/trace-events "$1"/hw/i386/xen/trace-events "$1"/hw/i386/kvm/trace-events "$1"/hw/ide/trace-events "$1"/hw/input/trace-events "$1"/hw/intc/trace-events "$1"/hw/isa/trace-events "$1"/hw/mem/trace-events "$1"/hw/mips/trace-events "$1"/hw/misc/trace-events "$1"/hw/misc/macio/trace-events "$1"/hw/net/trace-events "$1"/hw/net/can/trace-events "$1"/hw/nubus/trace-events "$1"/hw/nvme/trace-events "$1"/hw/nvram/trace-events "$1"/hw/pci/trace-events "$1"/hw/pci-host/trace-events "$1"/hw/ppc/trace-events "$1"/hw/rdma/trace-events "$1"/hw/rdma/vmw/trace-events "$1"/hw/rtc/trace-events "$1"/hw/s390x/trace-events "$1"/hw/scsi/trace-events "$1"/hw/sd/trace-events "$1"/hw/sh4/trace-events "$1"/hw/sparc/trace-events "$1"/hw/sparc64/trace-events "$1"/hw/ssi/trace-events "$1"/hw/timer/trace-events "$1"/hw/tpm/trace-events "$1"/hw/usb/trace-events "$1"/hw/vfio/trace-events "$1"/hw/virtio/trace-events "$1"/hw/watchdog/trace-events "$1"/hw/xen/trace-events "$1"/hw/gpio/trace-events "$1"/migration/trace-events "$1"/net/trace-events "$1"/softmmu/trace-events "$1"/ui/trace-events "$1"/hw/remote/trace-events "$1"/accel/tcg/trace-events "$1"/hw/core/trace-events "$1"/target/arm/trace-events "$1"/target/arm/hvf/trace-events "$1"/target/hppa/trace-events "$1"/target/i386/trace-events "$1"/target/i386/kvm/trace-events "$1"/target/mips/tcg/trace-events "$1"/target/nios2/trace-events "$1"/target/ppc/trace-events "$1"/target/riscv/trace-events "$1"/target/s390x/trace-events "$1"/target/s390x/kvm/trace-events "$1"/target/sparc/trace-events "$1"/build/qapi/qapi-commands-authz.trace-events "$1"/build/qapi/qapi-commands-block.trace-events "$1"/build/qapi/qapi-commands-block-core.trace-events "$1"/build/qapi/qapi-commands-block-export.trace-events "$1"/build/qapi/qapi-commands-char.trace-events "$1"/build/qapi/qapi-commands-common.trace-events "$1"/build/qapi/qapi-commands-compat.trace-events "$1"/build/qapi/qapi-commands-control.trace-events "$1"/build/qapi/qapi-commands-crypto.trace-events "$1"/build/qapi/qapi-commands-cxl.trace-events "$1"/build/qapi/qapi-commands-dump.trace-events "$1"/build/qapi/qapi-commands-error.trace-events "$1"/build/qapi/qapi-commands-introspect.trace-events "$1"/build/qapi/qapi-commands-job.trace-events "$1"/build/qapi/qapi-commands-machine.trace-events "$1"/build/qapi/qapi-commands-migration.trace-events "$1"/build/qapi/qapi-commands-misc.trace-events "$1"/build/qapi/qapi-commands-net.trace-events "$1"/build/qapi/qapi-commands-pragma.trace-events "$1"/build/qapi/qapi-commands-qom.trace-events "$1"/build/qapi/qapi-commands-replay.trace-events "$1"/build/qapi/qapi-commands-run-state.trace-events "$1"/build/qapi/qapi-commands-sockets.trace-events "$1"/build/qapi/qapi-commands-stats.trace-events "$1"/build/qapi/qapi-commands-trace.trace-events "$1"/build/qapi/qapi-commands-transaction.trace-events "$1"/build/qapi/qapi-commands-virtio.trace-events "$1"/build/qapi/qapi-commands-yank.trace-events "$1"/build/qapi/qapi-commands-acpi.trace-events "$1"/build/qapi/qapi-commands-audio.trace-events "$1"/build/qapi/qapi-commands-cryptodev.trace-events "$1"/build/qapi/qapi-commands-qdev.trace-events "$1"/build/qapi/qapi-commands-pci.trace-events "$1"/build/qapi/qapi-commands-rdma.trace-events "$1"/build/qapi/qapi-commands-rocker.trace-events "$1"/build/qapi/qapi-commands-tpm.trace-events "$1"/build/qapi/qapi-commands-ui.trace-events "$1"/build/qapi/qapi-commands-machine-target.trace-events "$1"/build/qapi/qapi-commands-misc-target.trace-events && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-atset1-to-qcode.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_atset1_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv atset1 qcode && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-linux-to-qcode.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_linux_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv linux qcode && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-qcode-to-atset1.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qcode_to_atset1 "$1"/subprojects/keycodemapdb/data/keymaps.csv qcode atset1 && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-qcode-to-atset2.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qcode_to_atset2 "$1"/subprojects/keycodemapdb/data/keymaps.csv qcode atset2 && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-qcode-to-atset3.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qcode_to_atset3 "$1"/subprojects/keycodemapdb/data/keymaps.csv qcode atset3 && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-qcode-to-linux.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qcode_to_linux "$1"/subprojects/keycodemapdb/data/keymaps.csv qcode linux && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-qcode-to-qnum.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qcode_to_qnum "$1"/subprojects/keycodemapdb/data/keymaps.csv qcode qnum && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-qcode-to-sun.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qcode_to_sun "$1"/subprojects/keycodemapdb/data/keymaps.csv qcode sun && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-qnum-to-qcode.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qnum_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv qnum qcode && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-usb-to-qcode.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_usb_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv usb qcode && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-win32-to-qcode.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_win32_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv win32 qcode && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-x11-to-qcode.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_x11_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv x11 qcode && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-xorgevdev-to-qcode.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_xorgevdev_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv xorgevdev qcode && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-xorgkbd-to-qcode.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_xorgkbd_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv xorgkbd qcode && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-xorgxquartz-to-qcode.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_xorgxquartz_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv xorgxquartz qcode && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-xorgxwin-to-qcode.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_xorgxwin_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv xorgxwin qcode && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/input-keymap-osx-to-qcode.c.inc -- "$1"/build/pyvenv/bin/python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_osx_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv osx qcode && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/shader/texture-blit-frag.h -- "$1"/build/pyvenv/bin/python3 "$1"/scripts/shaderinclude.py "$1"/ui/shader/texture-blit.frag && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/shader/texture-blit-vert.h -- "$1"/build/pyvenv/bin/python3 "$1"/scripts/shaderinclude.py "$1"/ui/shader/texture-blit.vert && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/ui/shader/texture-blit-flip-vert.h -- "$1"/build/pyvenv/bin/python3 "$1"/scripts/shaderinclude.py "$1"/ui/shader/texture-blit-flip.vert && \
+meson --internal vcstagger "$1"/subprojects/dtc/version_gen.h.in "$1"/build/subprojects/dtc/version_gen.h "$1"/build/1.6.0 "$1"/subprojects/dtc @VCS_TAG@ "$1"/build/'(.*)' git describe --dirty=+ --always && \
+meson --internal exe --capture "$1"/build/qemu-version.h -- "$1"/scripts/qemu-version.sh "$1" '' "$1"/build/8.1.2 && \
+meson --internal exe --capture "$1"/build/qemu-options.def -- "$1"/scripts/hxtool -h "$1"/qemu-options.hx && \
+meson --internal exe --capture "$1"/build/qemu-img-cmds.h -- "$1"/scripts/hxtool -h "$1"/qemu-img-cmds.hx && \
+meson --internal exe --capture "$1"/build/hmp-commands.h -- "$1"/scripts/hxtool -h "$1"/hmp-commands.hx && \
+meson --internal exe --capture "$1"/build/hmp-commands-info.h -- "$1"/scripts/hxtool -h "$1"/hmp-commands-info.hx && \
+python3 "$1"/scripts/qapi-gen.py -o qapi -b "$1"/qapi/qapi-schema.json && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=root --format=h "$1"/./trace-events "$1"/build/trace/trace-root.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=root --format=c "$1"/./trace-events "$1"/build/trace/trace-root.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=crypto --format=h "$1"/crypto/trace-events "$1"/build/trace/trace-crypto.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=crypto --format=c "$1"/crypto/trace-events "$1"/build/trace/trace-crypto.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi --format=h "$1"/qapi/trace-events "$1"/build/trace/trace-qapi.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi --format=c "$1"/qapi/trace-events "$1"/build/trace/trace-qapi.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qom --format=h "$1"/qom/trace-events "$1"/build/trace/trace-qom.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qom --format=c "$1"/qom/trace-events "$1"/build/trace/trace-qom.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=monitor --format=h "$1"/monitor/trace-events "$1"/build/trace/trace-monitor.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=monitor --format=c "$1"/monitor/trace-events "$1"/build/trace/trace-monitor.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=util --format=h "$1"/util/trace-events "$1"/build/trace/trace-util.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=util --format=c "$1"/util/trace-events "$1"/build/trace/trace-util.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=gdbstub --format=h "$1"/gdbstub/trace-events "$1"/build/trace/trace-gdbstub.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=gdbstub --format=c "$1"/gdbstub/trace-events "$1"/build/trace/trace-gdbstub.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=authz --format=h "$1"/authz/trace-events "$1"/build/trace/trace-authz.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=authz --format=c "$1"/authz/trace-events "$1"/build/trace/trace-authz.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=block --format=h "$1"/block/trace-events "$1"/build/trace/trace-block.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=block --format=c "$1"/block/trace-events "$1"/build/trace/trace-block.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=io --format=h "$1"/io/trace-events "$1"/build/trace/trace-io.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=io --format=c "$1"/io/trace-events "$1"/build/trace/trace-io.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=nbd --format=h "$1"/nbd/trace-events "$1"/build/trace/trace-nbd.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=nbd --format=c "$1"/nbd/trace-events "$1"/build/trace/trace-nbd.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=scsi --format=h "$1"/scsi/trace-events "$1"/build/trace/trace-scsi.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=scsi --format=c "$1"/scsi/trace-events "$1"/build/trace/trace-scsi.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=accel_kvm --format=h "$1"/accel/kvm/trace-events "$1"/build/trace/trace-accel_kvm.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=accel_kvm --format=c "$1"/accel/kvm/trace-events "$1"/build/trace/trace-accel_kvm.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=audio --format=h "$1"/audio/trace-events "$1"/build/trace/trace-audio.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=audio --format=c "$1"/audio/trace-events "$1"/build/trace/trace-audio.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=backends --format=h "$1"/backends/trace-events "$1"/build/trace/trace-backends.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=backends --format=c "$1"/backends/trace-events "$1"/build/trace/trace-backends.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=backends_tpm --format=h "$1"/backends/tpm/trace-events "$1"/build/trace/trace-backends_tpm.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=backends_tpm --format=c "$1"/backends/tpm/trace-events "$1"/build/trace/trace-backends_tpm.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=chardev --format=h "$1"/chardev/trace-events "$1"/build/trace/trace-chardev.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=chardev --format=c "$1"/chardev/trace-events "$1"/build/trace/trace-chardev.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=ebpf --format=h "$1"/ebpf/trace-events "$1"/build/trace/trace-ebpf.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=ebpf --format=c "$1"/ebpf/trace-events "$1"/build/trace/trace-ebpf.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_9pfs --format=h "$1"/hw/9pfs/trace-events "$1"/build/trace/trace-hw_9pfs.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_9pfs --format=c "$1"/hw/9pfs/trace-events "$1"/build/trace/trace-hw_9pfs.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_acpi --format=h "$1"/hw/acpi/trace-events "$1"/build/trace/trace-hw_acpi.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_acpi --format=c "$1"/hw/acpi/trace-events "$1"/build/trace/trace-hw_acpi.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_adc --format=h "$1"/hw/adc/trace-events "$1"/build/trace/trace-hw_adc.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_adc --format=c "$1"/hw/adc/trace-events "$1"/build/trace/trace-hw_adc.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_alpha --format=h "$1"/hw/alpha/trace-events "$1"/build/trace/trace-hw_alpha.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_alpha --format=c "$1"/hw/alpha/trace-events "$1"/build/trace/trace-hw_alpha.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_arm --format=h "$1"/hw/arm/trace-events "$1"/build/trace/trace-hw_arm.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_arm --format=c "$1"/hw/arm/trace-events "$1"/build/trace/trace-hw_arm.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_audio --format=h "$1"/hw/audio/trace-events "$1"/build/trace/trace-hw_audio.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_audio --format=c "$1"/hw/audio/trace-events "$1"/build/trace/trace-hw_audio.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_block --format=h "$1"/hw/block/trace-events "$1"/build/trace/trace-hw_block.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_block --format=c "$1"/hw/block/trace-events "$1"/build/trace/trace-hw_block.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_block_dataplane --format=h "$1"/hw/block/dataplane/trace-events "$1"/build/trace/trace-hw_block_dataplane.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_block_dataplane --format=c "$1"/hw/block/dataplane/trace-events "$1"/build/trace/trace-hw_block_dataplane.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_char --format=h "$1"/hw/char/trace-events "$1"/build/trace/trace-hw_char.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_char --format=c "$1"/hw/char/trace-events "$1"/build/trace/trace-hw_char.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_display --format=h "$1"/hw/display/trace-events "$1"/build/trace/trace-hw_display.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_display --format=c "$1"/hw/display/trace-events "$1"/build/trace/trace-hw_display.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_dma --format=h "$1"/hw/dma/trace-events "$1"/build/trace/trace-hw_dma.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_dma --format=c "$1"/hw/dma/trace-events "$1"/build/trace/trace-hw_dma.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_hyperv --format=h "$1"/hw/hyperv/trace-events "$1"/build/trace/trace-hw_hyperv.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_hyperv --format=c "$1"/hw/hyperv/trace-events "$1"/build/trace/trace-hw_hyperv.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i2c --format=h "$1"/hw/i2c/trace-events "$1"/build/trace/trace-hw_i2c.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i2c --format=c "$1"/hw/i2c/trace-events "$1"/build/trace/trace-hw_i2c.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i386 --format=h "$1"/hw/i386/trace-events "$1"/build/trace/trace-hw_i386.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i386 --format=c "$1"/hw/i386/trace-events "$1"/build/trace/trace-hw_i386.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i386_xen --format=h "$1"/hw/i386/xen/trace-events "$1"/build/trace/trace-hw_i386_xen.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i386_xen --format=c "$1"/hw/i386/xen/trace-events "$1"/build/trace/trace-hw_i386_xen.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i386_kvm --format=h "$1"/hw/i386/kvm/trace-events "$1"/build/trace/trace-hw_i386_kvm.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_i386_kvm --format=c "$1"/hw/i386/kvm/trace-events "$1"/build/trace/trace-hw_i386_kvm.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_ide --format=h "$1"/hw/ide/trace-events "$1"/build/trace/trace-hw_ide.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_ide --format=c "$1"/hw/ide/trace-events "$1"/build/trace/trace-hw_ide.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_input --format=h "$1"/hw/input/trace-events "$1"/build/trace/trace-hw_input.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_input --format=c "$1"/hw/input/trace-events "$1"/build/trace/trace-hw_input.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_intc --format=h "$1"/hw/intc/trace-events "$1"/build/trace/trace-hw_intc.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_intc --format=c "$1"/hw/intc/trace-events "$1"/build/trace/trace-hw_intc.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_isa --format=h "$1"/hw/isa/trace-events "$1"/build/trace/trace-hw_isa.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_isa --format=c "$1"/hw/isa/trace-events "$1"/build/trace/trace-hw_isa.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_mem --format=h "$1"/hw/mem/trace-events "$1"/build/trace/trace-hw_mem.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_mem --format=c "$1"/hw/mem/trace-events "$1"/build/trace/trace-hw_mem.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_mips --format=h "$1"/hw/mips/trace-events "$1"/build/trace/trace-hw_mips.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_mips --format=c "$1"/hw/mips/trace-events "$1"/build/trace/trace-hw_mips.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_misc --format=h "$1"/hw/misc/trace-events "$1"/build/trace/trace-hw_misc.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_misc --format=c "$1"/hw/misc/trace-events "$1"/build/trace/trace-hw_misc.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_misc_macio --format=h "$1"/hw/misc/macio/trace-events "$1"/build/trace/trace-hw_misc_macio.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_misc_macio --format=c "$1"/hw/misc/macio/trace-events "$1"/build/trace/trace-hw_misc_macio.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_net --format=h "$1"/hw/net/trace-events "$1"/build/trace/trace-hw_net.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_net --format=c "$1"/hw/net/trace-events "$1"/build/trace/trace-hw_net.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_net_can --format=h "$1"/hw/net/can/trace-events "$1"/build/trace/trace-hw_net_can.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_net_can --format=c "$1"/hw/net/can/trace-events "$1"/build/trace/trace-hw_net_can.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_nubus --format=h "$1"/hw/nubus/trace-events "$1"/build/trace/trace-hw_nubus.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_nubus --format=c "$1"/hw/nubus/trace-events "$1"/build/trace/trace-hw_nubus.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_nvme --format=h "$1"/hw/nvme/trace-events "$1"/build/trace/trace-hw_nvme.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_nvme --format=c "$1"/hw/nvme/trace-events "$1"/build/trace/trace-hw_nvme.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_nvram --format=h "$1"/hw/nvram/trace-events "$1"/build/trace/trace-hw_nvram.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_nvram --format=c "$1"/hw/nvram/trace-events "$1"/build/trace/trace-hw_nvram.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_pci --format=h "$1"/hw/pci/trace-events "$1"/build/trace/trace-hw_pci.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_pci --format=c "$1"/hw/pci/trace-events "$1"/build/trace/trace-hw_pci.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_pci_host --format=h "$1"/hw/pci-host/trace-events "$1"/build/trace/trace-hw_pci_host.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_pci_host --format=c "$1"/hw/pci-host/trace-events "$1"/build/trace/trace-hw_pci_host.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_ppc --format=h "$1"/hw/ppc/trace-events "$1"/build/trace/trace-hw_ppc.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_ppc --format=c "$1"/hw/ppc/trace-events "$1"/build/trace/trace-hw_ppc.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_rdma --format=h "$1"/hw/rdma/trace-events "$1"/build/trace/trace-hw_rdma.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_rdma --format=c "$1"/hw/rdma/trace-events "$1"/build/trace/trace-hw_rdma.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_rdma_vmw --format=h "$1"/hw/rdma/vmw/trace-events "$1"/build/trace/trace-hw_rdma_vmw.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_rdma_vmw --format=c "$1"/hw/rdma/vmw/trace-events "$1"/build/trace/trace-hw_rdma_vmw.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_rtc --format=h "$1"/hw/rtc/trace-events "$1"/build/trace/trace-hw_rtc.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_rtc --format=c "$1"/hw/rtc/trace-events "$1"/build/trace/trace-hw_rtc.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_s390x --format=h "$1"/hw/s390x/trace-events "$1"/build/trace/trace-hw_s390x.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_s390x --format=c "$1"/hw/s390x/trace-events "$1"/build/trace/trace-hw_s390x.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_scsi --format=h "$1"/hw/scsi/trace-events "$1"/build/trace/trace-hw_scsi.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_scsi --format=c "$1"/hw/scsi/trace-events "$1"/build/trace/trace-hw_scsi.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sd --format=h "$1"/hw/sd/trace-events "$1"/build/trace/trace-hw_sd.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sd --format=c "$1"/hw/sd/trace-events "$1"/build/trace/trace-hw_sd.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sh4 --format=h "$1"/hw/sh4/trace-events "$1"/build/trace/trace-hw_sh4.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sh4 --format=c "$1"/hw/sh4/trace-events "$1"/build/trace/trace-hw_sh4.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sparc --format=h "$1"/hw/sparc/trace-events "$1"/build/trace/trace-hw_sparc.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sparc --format=c "$1"/hw/sparc/trace-events "$1"/build/trace/trace-hw_sparc.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sparc64 --format=h "$1"/hw/sparc64/trace-events "$1"/build/trace/trace-hw_sparc64.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_sparc64 --format=c "$1"/hw/sparc64/trace-events "$1"/build/trace/trace-hw_sparc64.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_ssi --format=h "$1"/hw/ssi/trace-events "$1"/build/trace/trace-hw_ssi.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_ssi --format=c "$1"/hw/ssi/trace-events "$1"/build/trace/trace-hw_ssi.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_timer --format=h "$1"/hw/timer/trace-events "$1"/build/trace/trace-hw_timer.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_timer --format=c "$1"/hw/timer/trace-events "$1"/build/trace/trace-hw_timer.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_tpm --format=h "$1"/hw/tpm/trace-events "$1"/build/trace/trace-hw_tpm.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_tpm --format=c "$1"/hw/tpm/trace-events "$1"/build/trace/trace-hw_tpm.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_usb --format=h "$1"/hw/usb/trace-events "$1"/build/trace/trace-hw_usb.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_usb --format=c "$1"/hw/usb/trace-events "$1"/build/trace/trace-hw_usb.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_vfio --format=h "$1"/hw/vfio/trace-events "$1"/build/trace/trace-hw_vfio.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_vfio --format=c "$1"/hw/vfio/trace-events "$1"/build/trace/trace-hw_vfio.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_virtio --format=h "$1"/hw/virtio/trace-events "$1"/build/trace/trace-hw_virtio.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_virtio --format=c "$1"/hw/virtio/trace-events "$1"/build/trace/trace-hw_virtio.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_watchdog --format=h "$1"/hw/watchdog/trace-events "$1"/build/trace/trace-hw_watchdog.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_watchdog --format=c "$1"/hw/watchdog/trace-events "$1"/build/trace/trace-hw_watchdog.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_xen --format=h "$1"/hw/xen/trace-events "$1"/build/trace/trace-hw_xen.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_xen --format=c "$1"/hw/xen/trace-events "$1"/build/trace/trace-hw_xen.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_gpio --format=h "$1"/hw/gpio/trace-events "$1"/build/trace/trace-hw_gpio.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_gpio --format=c "$1"/hw/gpio/trace-events "$1"/build/trace/trace-hw_gpio.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=migration --format=h "$1"/migration/trace-events "$1"/build/trace/trace-migration.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=migration --format=c "$1"/migration/trace-events "$1"/build/trace/trace-migration.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=net --format=h "$1"/net/trace-events "$1"/build/trace/trace-net.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=net --format=c "$1"/net/trace-events "$1"/build/trace/trace-net.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=softmmu --format=h "$1"/softmmu/trace-events "$1"/build/trace/trace-softmmu.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=softmmu --format=c "$1"/softmmu/trace-events "$1"/build/trace/trace-softmmu.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=ui --format=h "$1"/ui/trace-events "$1"/build/trace/trace-ui.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=ui --format=c "$1"/ui/trace-events "$1"/build/trace/trace-ui.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_remote --format=h "$1"/hw/remote/trace-events "$1"/build/trace/trace-hw_remote.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_remote --format=c "$1"/hw/remote/trace-events "$1"/build/trace/trace-hw_remote.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=accel_tcg --format=h "$1"/accel/tcg/trace-events "$1"/build/trace/trace-accel_tcg.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=accel_tcg --format=c "$1"/accel/tcg/trace-events "$1"/build/trace/trace-accel_tcg.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_core --format=h "$1"/hw/core/trace-events "$1"/build/trace/trace-hw_core.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=hw_core --format=c "$1"/hw/core/trace-events "$1"/build/trace/trace-hw_core.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_arm --format=h "$1"/target/arm/trace-events "$1"/build/trace/trace-target_arm.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_arm --format=c "$1"/target/arm/trace-events "$1"/build/trace/trace-target_arm.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_arm_hvf --format=h "$1"/target/arm/hvf/trace-events "$1"/build/trace/trace-target_arm_hvf.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_arm_hvf --format=c "$1"/target/arm/hvf/trace-events "$1"/build/trace/trace-target_arm_hvf.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_hppa --format=h "$1"/target/hppa/trace-events "$1"/build/trace/trace-target_hppa.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_hppa --format=c "$1"/target/hppa/trace-events "$1"/build/trace/trace-target_hppa.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_i386 --format=h "$1"/target/i386/trace-events "$1"/build/trace/trace-target_i386.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_i386 --format=c "$1"/target/i386/trace-events "$1"/build/trace/trace-target_i386.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_i386_kvm --format=h "$1"/target/i386/kvm/trace-events "$1"/build/trace/trace-target_i386_kvm.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_i386_kvm --format=c "$1"/target/i386/kvm/trace-events "$1"/build/trace/trace-target_i386_kvm.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_mips_tcg --format=h "$1"/target/mips/tcg/trace-events "$1"/build/trace/trace-target_mips_tcg.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_mips_tcg --format=c "$1"/target/mips/tcg/trace-events "$1"/build/trace/trace-target_mips_tcg.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_nios2 --format=h "$1"/target/nios2/trace-events "$1"/build/trace/trace-target_nios2.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_nios2 --format=c "$1"/target/nios2/trace-events "$1"/build/trace/trace-target_nios2.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_ppc --format=h "$1"/target/ppc/trace-events "$1"/build/trace/trace-target_ppc.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_ppc --format=c "$1"/target/ppc/trace-events "$1"/build/trace/trace-target_ppc.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_riscv --format=h "$1"/target/riscv/trace-events "$1"/build/trace/trace-target_riscv.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_riscv --format=c "$1"/target/riscv/trace-events "$1"/build/trace/trace-target_riscv.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_s390x --format=h "$1"/target/s390x/trace-events "$1"/build/trace/trace-target_s390x.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_s390x --format=c "$1"/target/s390x/trace-events "$1"/build/trace/trace-target_s390x.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_s390x_kvm --format=h "$1"/target/s390x/kvm/trace-events "$1"/build/trace/trace-target_s390x_kvm.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_s390x_kvm --format=c "$1"/target/s390x/kvm/trace-events "$1"/build/trace/trace-target_s390x_kvm.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_sparc --format=h "$1"/target/sparc/trace-events "$1"/build/trace/trace-target_sparc.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=target_sparc --format=c "$1"/target/sparc/trace-events "$1"/build/trace/trace-target_sparc.c && \
+python3 "$1"/scripts/qapi-gen.py -o "$1"/build/qapi -b "$1"/qapi/qapi-schema.json
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_authz_trace_events --format=h "$1"/build/qapi/qapi-commands-authz.trace-events "$1"/build/trace/trace-qapi_commands_authz_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_authz_trace_events --format=c "$1"/build/qapi/qapi-commands-authz.trace-events "$1"/build/trace/trace-qapi_commands_authz_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_block_trace_events --format=h "$1"/build/qapi/qapi-commands-block.trace-events "$1"/build/trace/trace-qapi_commands_block_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_block_trace_events --format=c "$1"/build/qapi/qapi-commands-block.trace-events "$1"/build/trace/trace-qapi_commands_block_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_block_core_trace_events --format=h "$1"/build/qapi/qapi-commands-block-core.trace-events "$1"/build/trace/trace-qapi_commands_block_core_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_block_core_trace_events --format=c "$1"/build/qapi/qapi-commands-block-core.trace-events "$1"/build/trace/trace-qapi_commands_block_core_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_block_export_trace_events --format=h "$1"/build/qapi/qapi-commands-block-export.trace-events "$1"/build/trace/trace-qapi_commands_block_export_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_block_export_trace_events --format=c "$1"/build/qapi/qapi-commands-block-export.trace-events "$1"/build/trace/trace-qapi_commands_block_export_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_char_trace_events --format=h "$1"/build/qapi/qapi-commands-char.trace-events "$1"/build/trace/trace-qapi_commands_char_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_char_trace_events --format=c "$1"/build/qapi/qapi-commands-char.trace-events "$1"/build/trace/trace-qapi_commands_char_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_common_trace_events --format=h "$1"/build/qapi/qapi-commands-common.trace-events "$1"/build/trace/trace-qapi_commands_common_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_common_trace_events --format=c "$1"/build/qapi/qapi-commands-common.trace-events "$1"/build/trace/trace-qapi_commands_common_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_compat_trace_events --format=h "$1"/build/qapi/qapi-commands-compat.trace-events "$1"/build/trace/trace-qapi_commands_compat_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_compat_trace_events --format=c "$1"/build/qapi/qapi-commands-compat.trace-events "$1"/build/trace/trace-qapi_commands_compat_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_control_trace_events --format=h "$1"/build/qapi/qapi-commands-control.trace-events "$1"/build/trace/trace-qapi_commands_control_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_control_trace_events --format=c "$1"/build/qapi/qapi-commands-control.trace-events "$1"/build/trace/trace-qapi_commands_control_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_crypto_trace_events --format=h "$1"/build/qapi/qapi-commands-crypto.trace-events "$1"/build/trace/trace-qapi_commands_crypto_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_crypto_trace_events --format=c "$1"/build/qapi/qapi-commands-crypto.trace-events "$1"/build/trace/trace-qapi_commands_crypto_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_cxl_trace_events --format=h "$1"/build/qapi/qapi-commands-cxl.trace-events "$1"/build/trace/trace-qapi_commands_cxl_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_cxl_trace_events --format=c "$1"/build/qapi/qapi-commands-cxl.trace-events "$1"/build/trace/trace-qapi_commands_cxl_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_dump_trace_events --format=h "$1"/build/qapi/qapi-commands-dump.trace-events "$1"/build/trace/trace-qapi_commands_dump_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_dump_trace_events --format=c "$1"/build/qapi/qapi-commands-dump.trace-events "$1"/build/trace/trace-qapi_commands_dump_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_error_trace_events --format=h "$1"/build/qapi/qapi-commands-error.trace-events "$1"/build/trace/trace-qapi_commands_error_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_error_trace_events --format=c "$1"/build/qapi/qapi-commands-error.trace-events "$1"/build/trace/trace-qapi_commands_error_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_introspect_trace_events --format=h "$1"/build/qapi/qapi-commands-introspect.trace-events "$1"/build/trace/trace-qapi_commands_introspect_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_introspect_trace_events --format=c "$1"/build/qapi/qapi-commands-introspect.trace-events "$1"/build/trace/trace-qapi_commands_introspect_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_job_trace_events --format=h "$1"/build/qapi/qapi-commands-job.trace-events "$1"/build/trace/trace-qapi_commands_job_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_job_trace_events --format=c "$1"/build/qapi/qapi-commands-job.trace-events "$1"/build/trace/trace-qapi_commands_job_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_machine_trace_events --format=h "$1"/build/qapi/qapi-commands-machine.trace-events "$1"/build/trace/trace-qapi_commands_machine_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_machine_trace_events --format=c "$1"/build/qapi/qapi-commands-machine.trace-events "$1"/build/trace/trace-qapi_commands_machine_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_migration_trace_events --format=h "$1"/build/qapi/qapi-commands-migration.trace-events "$1"/build/trace/trace-qapi_commands_migration_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_migration_trace_events --format=c "$1"/build/qapi/qapi-commands-migration.trace-events "$1"/build/trace/trace-qapi_commands_migration_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_misc_trace_events --format=h "$1"/build/qapi/qapi-commands-misc.trace-events "$1"/build/trace/trace-qapi_commands_misc_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_misc_trace_events --format=c "$1"/build/qapi/qapi-commands-misc.trace-events "$1"/build/trace/trace-qapi_commands_misc_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_net_trace_events --format=h "$1"/build/qapi/qapi-commands-net.trace-events "$1"/build/trace/trace-qapi_commands_net_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_net_trace_events --format=c "$1"/build/qapi/qapi-commands-net.trace-events "$1"/build/trace/trace-qapi_commands_net_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_pragma_trace_events --format=h "$1"/build/qapi/qapi-commands-pragma.trace-events "$1"/build/trace/trace-qapi_commands_pragma_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_pragma_trace_events --format=c "$1"/build/qapi/qapi-commands-pragma.trace-events "$1"/build/trace/trace-qapi_commands_pragma_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_qom_trace_events --format=h "$1"/build/qapi/qapi-commands-qom.trace-events "$1"/build/trace/trace-qapi_commands_qom_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_qom_trace_events --format=c "$1"/build/qapi/qapi-commands-qom.trace-events "$1"/build/trace/trace-qapi_commands_qom_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_replay_trace_events --format=h "$1"/build/qapi/qapi-commands-replay.trace-events "$1"/build/trace/trace-qapi_commands_replay_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_replay_trace_events --format=c "$1"/build/qapi/qapi-commands-replay.trace-events "$1"/build/trace/trace-qapi_commands_replay_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_run_state_trace_events --format=h "$1"/build/qapi/qapi-commands-run-state.trace-events "$1"/build/trace/trace-qapi_commands_run_state_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_run_state_trace_events --format=c "$1"/build/qapi/qapi-commands-run-state.trace-events "$1"/build/trace/trace-qapi_commands_run_state_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_sockets_trace_events --format=h "$1"/build/qapi/qapi-commands-sockets.trace-events "$1"/build/trace/trace-qapi_commands_sockets_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_sockets_trace_events --format=c "$1"/build/qapi/qapi-commands-sockets.trace-events "$1"/build/trace/trace-qapi_commands_sockets_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_stats_trace_events --format=h "$1"/build/qapi/qapi-commands-stats.trace-events "$1"/build/trace/trace-qapi_commands_stats_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_stats_trace_events --format=c "$1"/build/qapi/qapi-commands-stats.trace-events "$1"/build/trace/trace-qapi_commands_stats_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_trace_trace_events --format=h "$1"/build/qapi/qapi-commands-trace.trace-events "$1"/build/trace/trace-qapi_commands_trace_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_trace_trace_events --format=c "$1"/build/qapi/qapi-commands-trace.trace-events "$1"/build/trace/trace-qapi_commands_trace_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_transaction_trace_events --format=h "$1"/build/qapi/qapi-commands-transaction.trace-events "$1"/build/trace/trace-qapi_commands_transaction_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_transaction_trace_events --format=c "$1"/build/qapi/qapi-commands-transaction.trace-events "$1"/build/trace/trace-qapi_commands_transaction_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_virtio_trace_events --format=h "$1"/build/qapi/qapi-commands-virtio.trace-events "$1"/build/trace/trace-qapi_commands_virtio_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_virtio_trace_events --format=c "$1"/build/qapi/qapi-commands-virtio.trace-events "$1"/build/trace/trace-qapi_commands_virtio_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_yank_trace_events --format=h "$1"/build/qapi/qapi-commands-yank.trace-events "$1"/build/trace/trace-qapi_commands_yank_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_yank_trace_events --format=c "$1"/build/qapi/qapi-commands-yank.trace-events "$1"/build/trace/trace-qapi_commands_yank_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_acpi_trace_events --format=h "$1"/build/qapi/qapi-commands-acpi.trace-events "$1"/build/trace/trace-qapi_commands_acpi_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_acpi_trace_events --format=c "$1"/build/qapi/qapi-commands-acpi.trace-events "$1"/build/trace/trace-qapi_commands_acpi_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_audio_trace_events --format=h "$1"/build/qapi/qapi-commands-audio.trace-events "$1"/build/trace/trace-qapi_commands_audio_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_audio_trace_events --format=c "$1"/build/qapi/qapi-commands-audio.trace-events "$1"/build/trace/trace-qapi_commands_audio_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_cryptodev_trace_events --format=h "$1"/build/qapi/qapi-commands-cryptodev.trace-events "$1"/build/trace/trace-qapi_commands_cryptodev_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_cryptodev_trace_events --format=c "$1"/build/qapi/qapi-commands-cryptodev.trace-events "$1"/build/trace/trace-qapi_commands_cryptodev_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_qdev_trace_events --format=h "$1"/build/qapi/qapi-commands-qdev.trace-events "$1"/build/trace/trace-qapi_commands_qdev_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_qdev_trace_events --format=c "$1"/build/qapi/qapi-commands-qdev.trace-events "$1"/build/trace/trace-qapi_commands_qdev_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_pci_trace_events --format=h "$1"/build/qapi/qapi-commands-pci.trace-events "$1"/build/trace/trace-qapi_commands_pci_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_pci_trace_events --format=c "$1"/build/qapi/qapi-commands-pci.trace-events "$1"/build/trace/trace-qapi_commands_pci_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_rdma_trace_events --format=h "$1"/build/qapi/qapi-commands-rdma.trace-events "$1"/build/trace/trace-qapi_commands_rdma_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_rdma_trace_events --format=c "$1"/build/qapi/qapi-commands-rdma.trace-events "$1"/build/trace/trace-qapi_commands_rdma_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_rocker_trace_events --format=h "$1"/build/qapi/qapi-commands-rocker.trace-events "$1"/build/trace/trace-qapi_commands_rocker_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_rocker_trace_events --format=c "$1"/build/qapi/qapi-commands-rocker.trace-events "$1"/build/trace/trace-qapi_commands_rocker_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_tpm_trace_events --format=h "$1"/build/qapi/qapi-commands-tpm.trace-events "$1"/build/trace/trace-qapi_commands_tpm_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_tpm_trace_events --format=c "$1"/build/qapi/qapi-commands-tpm.trace-events "$1"/build/trace/trace-qapi_commands_tpm_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_ui_trace_events --format=h "$1"/build/qapi/qapi-commands-ui.trace-events "$1"/build/trace/trace-qapi_commands_ui_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_ui_trace_events --format=c "$1"/build/qapi/qapi-commands-ui.trace-events "$1"/build/trace/trace-qapi_commands_ui_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_machine_target_trace_events --format=h "$1"/build/qapi/qapi-commands-machine-target.trace-events "$1"/build/trace/trace-qapi_commands_machine_target_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_machine_target_trace_events --format=c "$1"/build/qapi/qapi-commands-machine-target.trace-events "$1"/build/trace/trace-qapi_commands_machine_target_trace_events.c && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_misc_target_trace_events --format=h "$1"/build/qapi/qapi-commands-misc-target.trace-events "$1"/build/trace/trace-qapi_commands_misc_target_trace_events.h && \
+python3 "$1"/scripts/tracetool.py --backend=log --group=qapi_commands_misc_target_trace_events --format=c "$1"/build/qapi/qapi-commands-misc-target.trace-events "$1"/build/trace/trace-qapi_commands_misc_target_trace_events.c && \
+meson --internal exe --capture "$1"/build/trace/trace-events-all -- /usr/bin/cat "$1"/./trace-events "$1"/crypto/trace-events "$1"/qapi/trace-events "$1"/qom/trace-events "$1"/monitor/trace-events "$1"/util/trace-events "$1"/gdbstub/trace-events "$1"/authz/trace-events "$1"/block/trace-events "$1"/io/trace-events "$1"/nbd/trace-events "$1"/scsi/trace-events "$1"/accel/kvm/trace-events "$1"/audio/trace-events "$1"/backends/trace-events "$1"/backends/tpm/trace-events "$1"/chardev/trace-events "$1"/ebpf/trace-events "$1"/hw/9pfs/trace-events "$1"/hw/acpi/trace-events "$1"/hw/adc/trace-events "$1"/hw/alpha/trace-events "$1"/hw/arm/trace-events "$1"/hw/audio/trace-events "$1"/hw/block/trace-events "$1"/hw/block/dataplane/trace-events "$1"/hw/char/trace-events "$1"/hw/display/trace-events "$1"/hw/dma/trace-events "$1"/hw/hyperv/trace-events "$1"/hw/i2c/trace-events "$1"/hw/i386/trace-events "$1"/hw/i386/xen/trace-events "$1"/hw/i386/kvm/trace-events "$1"/hw/ide/trace-events "$1"/hw/input/trace-events "$1"/hw/intc/trace-events "$1"/hw/isa/trace-events "$1"/hw/mem/trace-events "$1"/hw/mips/trace-events "$1"/hw/misc/trace-events "$1"/hw/misc/macio/trace-events "$1"/hw/net/trace-events "$1"/hw/net/can/trace-events "$1"/hw/nubus/trace-events "$1"/hw/nvme/trace-events "$1"/hw/nvram/trace-events "$1"/hw/pci/trace-events "$1"/hw/pci-host/trace-events "$1"/hw/ppc/trace-events "$1"/hw/rdma/trace-events "$1"/hw/rdma/vmw/trace-events "$1"/hw/rtc/trace-events "$1"/hw/s390x/trace-events "$1"/hw/scsi/trace-events "$1"/hw/sd/trace-events "$1"/hw/sh4/trace-events "$1"/hw/sparc/trace-events "$1"/hw/sparc64/trace-events "$1"/hw/ssi/trace-events "$1"/hw/timer/trace-events "$1"/hw/tpm/trace-events "$1"/hw/usb/trace-events "$1"/hw/vfio/trace-events "$1"/hw/virtio/trace-events "$1"/hw/watchdog/trace-events "$1"/hw/xen/trace-events "$1"/hw/gpio/trace-events "$1"/migration/trace-events "$1"/net/trace-events "$1"/softmmu/trace-events "$1"/ui/trace-events "$1"/hw/remote/trace-events "$1"/accel/tcg/trace-events "$1"/hw/core/trace-events "$1"/target/arm/trace-events "$1"/target/arm/hvf/trace-events "$1"/target/hppa/trace-events "$1"/target/i386/trace-events "$1"/target/i386/kvm/trace-events "$1"/target/mips/tcg/trace-events "$1"/target/nios2/trace-events "$1"/target/ppc/trace-events "$1"/target/riscv/trace-events "$1"/target/s390x/trace-events "$1"/target/s390x/kvm/trace-events "$1"/target/sparc/trace-events "$1"/build/qapi/qapi-commands-authz.trace-events "$1"/build/qapi/qapi-commands-block.trace-events "$1"/build/qapi/qapi-commands-block-core.trace-events "$1"/build/qapi/qapi-commands-block-export.trace-events "$1"/build/qapi/qapi-commands-char.trace-events "$1"/build/qapi/qapi-commands-common.trace-events "$1"/build/qapi/qapi-commands-compat.trace-events "$1"/build/qapi/qapi-commands-control.trace-events "$1"/build/qapi/qapi-commands-crypto.trace-events "$1"/build/qapi/qapi-commands-cxl.trace-events "$1"/build/qapi/qapi-commands-dump.trace-events "$1"/build/qapi/qapi-commands-error.trace-events "$1"/build/qapi/qapi-commands-introspect.trace-events "$1"/build/qapi/qapi-commands-job.trace-events "$1"/build/qapi/qapi-commands-machine.trace-events "$1"/build/qapi/qapi-commands-migration.trace-events "$1"/build/qapi/qapi-commands-misc.trace-events "$1"/build/qapi/qapi-commands-net.trace-events "$1"/build/qapi/qapi-commands-pragma.trace-events "$1"/build/qapi/qapi-commands-qom.trace-events "$1"/build/qapi/qapi-commands-replay.trace-events "$1"/build/qapi/qapi-commands-run-state.trace-events "$1"/build/qapi/qapi-commands-sockets.trace-events "$1"/build/qapi/qapi-commands-stats.trace-events "$1"/build/qapi/qapi-commands-trace.trace-events "$1"/build/qapi/qapi-commands-transaction.trace-events "$1"/build/qapi/qapi-commands-virtio.trace-events "$1"/build/qapi/qapi-commands-yank.trace-events "$1"/build/qapi/qapi-commands-acpi.trace-events "$1"/build/qapi/qapi-commands-audio.trace-events "$1"/build/qapi/qapi-commands-cryptodev.trace-events "$1"/build/qapi/qapi-commands-qdev.trace-events "$1"/build/qapi/qapi-commands-pci.trace-events "$1"/build/qapi/qapi-commands-rdma.trace-events "$1"/build/qapi/qapi-commands-rocker.trace-events "$1"/build/qapi/qapi-commands-tpm.trace-events "$1"/build/qapi/qapi-commands-ui.trace-events "$1"/build/qapi/qapi-commands-machine-target.trace-events "$1"/build/qapi/qapi-commands-misc-target.trace-events && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-atset1-to-qcode.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_atset1_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv atset1 qcode && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-linux-to-qcode.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_linux_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv linux qcode && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-qcode-to-atset1.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qcode_to_atset1 "$1"/subprojects/keycodemapdb/data/keymaps.csv qcode atset1 && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-qcode-to-atset2.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qcode_to_atset2 "$1"/subprojects/keycodemapdb/data/keymaps.csv qcode atset2 && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-qcode-to-atset3.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qcode_to_atset3 "$1"/subprojects/keycodemapdb/data/keymaps.csv qcode atset3 && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-qcode-to-linux.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qcode_to_linux "$1"/subprojects/keycodemapdb/data/keymaps.csv qcode linux && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-qcode-to-qnum.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qcode_to_qnum "$1"/subprojects/keycodemapdb/data/keymaps.csv qcode qnum && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-qcode-to-sun.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qcode_to_sun "$1"/subprojects/keycodemapdb/data/keymaps.csv qcode sun && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-qnum-to-qcode.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_qnum_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv qnum qcode && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-usb-to-qcode.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_usb_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv usb qcode && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-win32-to-qcode.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_win32_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv win32 qcode && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-x11-to-qcode.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_x11_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv x11 qcode && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-xorgevdev-to-qcode.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_xorgevdev_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv xorgevdev qcode && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-xorgkbd-to-qcode.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_xorgkbd_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv xorgkbd qcode && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-xorgxquartz-to-qcode.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_xorgxquartz_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv xorgxquartz qcode && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-xorgxwin-to-qcode.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_xorgxwin_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv xorgxwin qcode && \
+meson --internal exe --capture "$1"/build/ui/input-keymap-osx-to-qcode.c.inc -- python3 "$1"/subprojects/keycodemapdb/tools/keymap-gen code-map --lang glib2 --varname qemu_input_map_osx_to_qcode "$1"/subprojects/keycodemapdb/data/keymaps.csv osx qcode && \
+meson --internal exe --capture "$1"/build/ui/shader/texture-blit-frag.h -- python3 "$1"/scripts/shaderinclude.py "$1"/ui/shader/texture-blit.frag && \
+meson --internal exe --capture "$1"/build/ui/shader/texture-blit-vert.h -- python3 "$1"/scripts/shaderinclude.py "$1"/ui/shader/texture-blit.vert && \
+meson --internal exe --capture "$1"/build/ui/shader/texture-blit-flip-vert.h -- python3 "$1"/scripts/shaderinclude.py "$1"/ui/shader/texture-blit-flip.vert && \
 # TODO: Fix gen_semantics, which should be compiled first (build.ninja:3544)
 gcc -o "$1"/build/target/hexagon/gen_semantics "$1"/target/hexagon/gen_semantics.c && \
 "$1"/build/target/hexagon/gen_semantics "$1"/build/target/hexagon/semantics_generated.pyinc && \
-"$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_shortcode.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/shortcode_generated.h.inc && \
-"$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_tcg_func_table.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/tcg_func_table_generated.c.inc && \
-"$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_printinsn.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/printinsn_generated.h.inc && \
-"$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_op_regs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/op_regs_generated.h.inc && \
-"$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_op_attribs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/op_attribs_generated.h.inc && \
-"$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_opcodes_def.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/opcodes_def_generated.h.inc && \
+python3 "$1"/target/hexagon/gen_shortcode.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/shortcode_generated.h.inc && \
+python3 "$1"/target/hexagon/gen_tcg_func_table.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/tcg_func_table_generated.c.inc && \
+python3 "$1"/target/hexagon/gen_printinsn.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/printinsn_generated.h.inc && \
+python3 "$1"/target/hexagon/gen_op_regs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/op_regs_generated.h.inc && \
+python3 "$1"/target/hexagon/gen_op_attribs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/op_attribs_generated.h.inc && \
+python3 "$1"/target/hexagon/gen_opcodes_def.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/build/target/hexagon/opcodes_def_generated.h.inc && \
 gcc -o "$1"/build/target/hexagon/gen_dectree_import "$1"/target/hexagon/gen_dectree_import.c -I"$1"/build/target/hexagon/ && \
 "$1"/build/target/hexagon/gen_dectree_import "$1"/build/target/hexagon/iset.py && \
-env PYTHONPATH="$1"/build/target/hexagon "$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/dectree.py "$1"/build/target/hexagon/dectree_generated.h.inc && \
-"$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_helper_protos.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/target/hexagon/gen_tcg.h "$1"/target/hexagon/gen_tcg_hvx.h "$1"/build/target/hexagon/helper_protos_generated.h.inc && \
-"$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_helper_funcs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/target/hexagon/gen_tcg.h "$1"/target/hexagon/gen_tcg_hvx.h "$1"/build/target/hexagon/helper_funcs_generated.c.inc && \
-"$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_tcg_funcs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/target/hexagon/gen_tcg.h "$1"/target/hexagon/gen_tcg_hvx.h "$1"/build/target/hexagon/tcg_funcs_generated.c.inc && \
-"$1"/build/pyvenv/bin/python3 "$1"/target/hexagon/gen_analyze_funcs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/target/hexagon/gen_tcg.h "$1"/target/hexagon/gen_tcg_hvx.h "$1"/build/target/hexagon/analyze_funcs_generated.c.inc && \
+env PYTHONPATH="$1"/build/target/hexagon python3 "$1"/target/hexagon/dectree.py "$1"/build/target/hexagon/dectree_generated.h.inc && \
+python3 "$1"/target/hexagon/gen_helper_protos.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/target/hexagon/gen_tcg.h "$1"/target/hexagon/gen_tcg_hvx.h "$1"/build/target/hexagon/helper_protos_generated.h.inc && \
+python3 "$1"/target/hexagon/gen_helper_funcs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/target/hexagon/gen_tcg.h "$1"/target/hexagon/gen_tcg_hvx.h "$1"/build/target/hexagon/helper_funcs_generated.c.inc && \
+python3 "$1"/target/hexagon/gen_tcg_funcs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/target/hexagon/gen_tcg.h "$1"/target/hexagon/gen_tcg_hvx.h "$1"/build/target/hexagon/tcg_funcs_generated.c.inc && \
+python3 "$1"/target/hexagon/gen_analyze_funcs.py "$1"/build/target/hexagon/semantics_generated.pyinc "$1"/target/hexagon/attribs_def.h.inc "$1"/target/hexagon/gen_tcg.h "$1"/target/hexagon/gen_tcg_hvx.h "$1"/build/target/hexagon/analyze_funcs_generated.c.inc && \
 gcc -o "$1"/build/target/s390x/gen-features "$1"/target/s390x/gen-features.c && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/target/s390x/gen-features.h -- "$1"/build/target/s390x/gen-features && \
-"$1"/build/pyvenv/bin/python3 "$1"/block/../scripts/modules/module_block.py "$1"/build/block/module_block.h && \
-"$1"/build/pyvenv/bin/python3 "$1"/block/../scripts/block-coroutine-wrapper.py "$1"/build/block/block-gen.c "$1"/block/../include/block/block-io.h "$1"/block/../include/block/dirty-bitmap.h "$1"/block/../include/block/block_int-io.h "$1"/block/../include/block/block-global-state.h "$1"/block/../include/sysemu/block-backend-global-state.h "$1"/block/../include/sysemu/block-backend-io.h "$1"/block/coroutines.h && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/block.syms -- "$1"/build/pyvenv/bin/python3 "$1"/scripts/undefsym.py /usr/bin/nm "$1"/build/libqemuutil.a && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/qemu.syms -- "$1"/build/pyvenv/bin/python3 "$1"/scripts/undefsym.py /usr/bin/nm "$1"/build/libqemuutil.a && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/x86_64-softmmu-gdbstub-xml.c -- /bin/sh "$1"/scripts/feature_to_c.sh "$1"/gdb-xml/i386-64bit.xml && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/pc-bios/edk2-aarch64-code.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-aarch64-code.fd.bz2 && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/pc-bios/edk2-arm-code.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-arm-code.fd.bz2 && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/pc-bios/edk2-arm-vars.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-arm-vars.fd.bz2 && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/pc-bios/edk2-i386-code.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-i386-code.fd.bz2 && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/pc-bios/edk2-i386-secure-code.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-i386-secure-code.fd.bz2 && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/pc-bios/edk2-i386-vars.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-i386-vars.fd.bz2 && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/pc-bios/edk2-x86_64-code.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-x86_64-code.fd.bz2 && \
-"$1"/build/pyvenv/bin/meson --internal exe --capture "$1"/build/pc-bios/edk2-x86_64-secure-code.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-x86_64-secure-code.fd.bz2 && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/qapi-gen.py -o "$1"/build/tests -b -p test- "$1"/tests/qapi-schema/qapi-schema-test.json --suppress-tracing && \
+meson --internal exe --capture "$1"/build/target/s390x/gen-features.h -- "$1"/build/target/s390x/gen-features && \
+python3 "$1"/block/../scripts/modules/module_block.py "$1"/build/block/module_block.h && \
+python3 "$1"/block/../scripts/block-coroutine-wrapper.py "$1"/build/block/block-gen.c "$1"/block/../include/block/block-io.h "$1"/block/../include/block/dirty-bitmap.h "$1"/block/../include/block/block_int-io.h "$1"/block/../include/block/block-global-state.h "$1"/block/../include/sysemu/block-backend-global-state.h "$1"/block/../include/sysemu/block-backend-io.h "$1"/block/coroutines.h && \
+meson --internal exe --capture "$1"/build/block.syms -- python3 "$1"/scripts/undefsym.py /usr/bin/nm "$1"/build/libqemuutil.a && \
+meson --internal exe --capture "$1"/build/qemu.syms -- python3 "$1"/scripts/undefsym.py /usr/bin/nm "$1"/build/libqemuutil.a && \
+meson --internal exe --capture "$1"/build/x86_64-softmmu-gdbstub-xml.c -- /bin/sh "$1"/scripts/feature_to_c.sh "$1"/gdb-xml/i386-64bit.xml && \
+meson --internal exe --capture "$1"/build/pc-bios/edk2-aarch64-code.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-aarch64-code.fd.bz2 && \
+meson --internal exe --capture "$1"/build/pc-bios/edk2-arm-code.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-arm-code.fd.bz2 && \
+meson --internal exe --capture "$1"/build/pc-bios/edk2-arm-vars.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-arm-vars.fd.bz2 && \
+meson --internal exe --capture "$1"/build/pc-bios/edk2-i386-code.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-i386-code.fd.bz2 && \
+meson --internal exe --capture "$1"/build/pc-bios/edk2-i386-secure-code.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-i386-secure-code.fd.bz2 && \
+meson --internal exe --capture "$1"/build/pc-bios/edk2-i386-vars.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-i386-vars.fd.bz2 && \
+meson --internal exe --capture "$1"/build/pc-bios/edk2-x86_64-code.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-x86_64-code.fd.bz2 && \
+meson --internal exe --capture "$1"/build/pc-bios/edk2-x86_64-secure-code.fd -- /usr/bin/bzip2 -dc "$1"/pc-bios/edk2-x86_64-secure-code.fd.bz2 && \
+python3 "$1"/scripts/qapi-gen.py -o "$1"/build/tests -b -p test- "$1"/tests/qapi-schema/qapi-schema-test.json --suppress-tracing && \
 /usr/bin/true && \
-"$1"/build/pyvenv/bin/python3 "$1"/scripts/qapi-gen.py -o "$1"/build/tests/qapi-schema -p doc-good- "$1"/tests/qapi-schema/doc-good.json && \
-"$1"/build/pyvenv/bin/meson --internal uninstall && \
-"$1"/build/pyvenv/bin/meson --internal cleantrees "$1"/build/meson-private/cleantrees.dat
+python3 "$1"/scripts/qapi-gen.py -o "$1"/build/tests/qapi-schema -p doc-good- "$1"/tests/qapi-schema/doc-good.json && \
+meson --internal uninstall && \
+meson --internal cleantrees "$1"/build/meson-private/cleantrees.dat

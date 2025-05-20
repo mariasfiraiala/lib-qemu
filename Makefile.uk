@@ -75,7 +75,8 @@ LIBQEMU_SUPPRESS_FLAGS += -Wno-unused-parameter   \
 		  -Wno-missing-field-initializers \
 		  -Wno-implicit-fallthrough \
           -Wno-implicit-function-declaration \
-          -Wno-int-conversion
+          -Wno-int-conversion \
+          -Wno-sign-compare
 
 LIBQEMU_CFLAGS-y   += $(LIBQEMU_SUPPRESS_FLAGS) \
 		      -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
@@ -183,7 +184,7 @@ $(LIBQEMU_BUILD)/.configured: $(LIBQEMU_BUILD)/.prepared
         --enable-xen-pci-passthrough \
         --prefix=/usr \
         --target-list=x86_64-softmmu \
-        --without-default-features \
+        --without-default-features 2>&1 /dev/null \
     && $(LIBQEMU_BASE)/helpers/custom_commands.sh $(LIBQEMU) && touch $@)
 
 UK_PREPARE += $(LIBQEMU_BUILD)/.configured
