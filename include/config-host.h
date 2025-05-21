@@ -9,7 +9,7 @@
 
 #undef CONFIG_AF_ALG
 
-#define CONFIG_AF_VSOCK
+#undef CONFIG_AF_VSOCK
 
 #undef CONFIG_ALIGNED_MALLOC
 
