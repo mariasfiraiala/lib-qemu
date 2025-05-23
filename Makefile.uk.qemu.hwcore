@@ -116,14 +116,14 @@ LIBQEMU_HWCORE_HDRS-y += $(LIBQEMU)/trace/control-internal.h
 LIBQEMU_HWCORE_HDRS-y += $(LIBQEMU)/trace/control.h
 LIBQEMU_HWCORE_HDRS-y += $(LIBQEMU)/trace/event-internal.h
 
-LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/bus.c
+LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/bus.c|core
 LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/clock.c
 LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/hotplug.c
 LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/irq.c
 LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/qdev-clock.c
 LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/qdev-hotplug.c
 LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/qdev-properties.c
-LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/qdev.c
+LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/qdev.c|core
 LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/reset.c
 LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/resettable.c
 LIBQEMU_HWCORE_SRCS-y += $(LIBQEMU)/hw/core/vmstate-if.c

@@ -95,7 +95,7 @@ LIBQEMU_MIGRATION_SRCS-y += $(LIBQEMU)/migration/migration-stats.c
 LIBQEMU_MIGRATION_SRCS-y += $(LIBQEMU)/migration/page_cache.c
 LIBQEMU_MIGRATION_SRCS-y += $(LIBQEMU)/migration/qemu-file.c
 LIBQEMU_MIGRATION_SRCS-y += $(LIBQEMU)/migration/vmstate-types.c
-LIBQEMU_MIGRATION_SRCS-y += $(LIBQEMU)/migration/vmstate.c
+LIBQEMU_MIGRATION_SRCS-y += $(LIBQEMU)/migration/vmstate.c|migration
 LIBQEMU_MIGRATION_SRCS-y += $(LIBQEMU)/migration/xbzrle.c
 LIBQEMU_MIGRATION_SRCS-y += $(LIBQEMU)/migration/yank_functions.c
 

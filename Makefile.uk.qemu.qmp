@@ -125,7 +125,7 @@ LIBQEMU_QMP_HDRS-y += $(LIBQEMU)/trace/control-internal.h
 LIBQEMU_QMP_HDRS-y += $(LIBQEMU)/trace/control.h
 LIBQEMU_QMP_HDRS-y += $(LIBQEMU)/trace/event-internal.h
 
-LIBQEMU_QMP_SRCS-y += $(LIBQEMU)/monitor/monitor.c
+LIBQEMU_QMP_SRCS-y += $(LIBQEMU)/monitor/monitor.c|monitor
 LIBQEMU_QMP_SRCS-y += $(LIBQEMU)/monitor/qmp-cmds-control.c
 LIBQEMU_QMP_SRCS-y += $(LIBQEMU)/monitor/qmp.c
 LIBQEMU_QMP_SRCS-y += $(LIBQEMU)/qom/qom-qmp-cmds.c

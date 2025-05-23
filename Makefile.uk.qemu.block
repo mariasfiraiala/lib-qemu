@@ -236,7 +236,7 @@ LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/block/raw-format.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/block/reqlist.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/block/snapshot-access.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/block/snapshot.c
-LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/block/stream.c
+LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/block/stream.c|block
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/block/throttle-groups.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/block/throttle.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/block/write-threshold.c
@@ -248,7 +248,7 @@ LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/nbd/client.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/nbd/common.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/qemu-io-cmds.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/scsi/pr-manager-stub.c
-LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/scsi/utils.c
+LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/scsi/utils.c|scsi
 
 LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block
 LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block/block
