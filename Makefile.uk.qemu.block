@@ -250,6 +250,7 @@ LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/qemu-io-cmds.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/scsi/pr-manager-stub.c
 LIBQEMU_BLOCK_SRCS-y += $(LIBQEMU)/scsi/utils.c
 
+LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block
 LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block/block
 LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block/build
 LIBQEMU_BLOCK_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/block/include

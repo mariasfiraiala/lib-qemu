@@ -62,9 +62,6 @@ UK_PREPARE += $(LIBQEMU_BUILD)/.prepared
 CINCLUDES-$(CONFIG_LIBQEMU)  += -I$(LIBQEMU_BASE)/include
 CXXINCLUDES-$(CONFIG_LIBQEMU) += -I$(LIBQEMU_BASE)/include
 
-CINCLUDES-$(CONFIG_LIBQEMU)   += -I$(LIBQEMU)
-CXXINCLUDES-$(CONFIG_LIBQEMU) += -I$(LIBQEMU)
-
 ################################################################################
 # Global flags
 ################################################################################

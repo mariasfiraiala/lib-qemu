@@ -105,6 +105,7 @@ LIBQEMU_CRYPTO_SRCS-y += $(LIBQEMU)/crypto/tlscredspsk.c
 LIBQEMU_CRYPTO_SRCS-y += $(LIBQEMU)/crypto/tlscredsx509.c
 LIBQEMU_CRYPTO_SRCS-y += $(LIBQEMU)/crypto/tlssession.c
 
+LIBQEMU_CRYPTO_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/crypto/
 LIBQEMU_CRYPTO_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/crypto/build
 LIBQEMU_CRYPTO_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/crypto/build/qapi
 LIBQEMU_CRYPTO_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/crypto/crypto

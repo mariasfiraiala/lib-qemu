@@ -1023,6 +1023,7 @@ LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/uuid.c
 # LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/vhost-user-server.c
 LIBQEMU_QEMUUTIL_SRCS-y += $(LIBQEMU)/util/yank.c
 
+LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil
 LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/build
 LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/host
 LIBQEMU_QEMUUTIL_INCLUDES-y += -I$(LIBQEMU_BUILD)/include/qemuutil/host/include/x86_64
