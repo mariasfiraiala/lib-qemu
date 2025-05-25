@@ -153,6 +153,7 @@ $(LIBQEMU_BUILD)/.configured: $(LIBQEMU_BUILD)/.prepared
         --disable-rdma \
         --disable-replication \
         --disable-sdl \
+        --disable-seccomp \
         --disable-slirp \
         --disable-smartcard \
         --disable-snappy \
@@ -181,7 +182,7 @@ $(LIBQEMU_BUILD)/.configured: $(LIBQEMU_BUILD)/.prepared
         --enable-xen-pci-passthrough \
         --prefix=/usr \
         --target-list=x86_64-softmmu \
-        --without-default-features 2>&1 /dev/null \
+        --without-default-features \
     && $(LIBQEMU_BASE)/helpers/custom_commands.sh $(LIBQEMU) && touch $@)
 
 UK_PREPARE += $(LIBQEMU_BUILD)/.configured
