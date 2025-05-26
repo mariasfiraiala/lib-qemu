@@ -111,7 +111,7 @@
 
 #define CONFIG_FDATASYNC
 
-#define CONFIG_FDT
+#undef CONFIG_FDT
 
 #define CONFIG_FIEMAP
 
