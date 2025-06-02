@@ -79,6 +79,7 @@ LIBQEMU_CFLAGS-y   += $(LIBQEMU_SUPPRESS_FLAGS) \
 		      -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast
 LIBQEMU_CFLAGS-y   += -DCONFIG_TARGET=\"x86_64-softmmu-config-target.h\" -DCONFIG_DEVICES=\"x86_64-softmmu-config-devices.h\"
 LIBQEMU_CFLAGS-y   += -DNEED_CPU_H
+LIBQEMU_CFLAGS-y   += -D__XEN_INTERFACE_VERSION__=__XEN_LATEST_INTERFACE_VERSION__
 LIBQEMU_CXXFLAGS-y += $(LIBQEMU_SUPPRESS_FLAGS)
 
 CFLAGS-$(CONFIG_LIBQEMU) += $(LIBQEMU_HDRS_FLAGS-y)
