@@ -1,0 +1,25 @@
+From f9a0b51bb7ba3fec2ed6ae6eab9c0da53dea1169 Mon Sep 17 00:00:00 2001
+From: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+Date: Mon, 2 Jun 2025 15:16:42 +0300
+Subject: [PATCH 4/5] Replace CLONE_VM with its value
+
+Signed-off-by: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+---
+ util/async-teardown.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/util/async-teardown.c b/util/async-teardown.c
+index 62cdeb0f2..a4615f661 100644
+--- a/util/async-teardown.c
++++ b/util/async-teardown.c
+@@ -141,6 +141,6 @@ void init_async_teardown(void)
+ 
+     sigfillset(&all_signals);
+     sigprocmask(SIG_BLOCK, &all_signals, &old_signals);
+-    clone(async_teardown_fn, new_stack_for_clone(), CLONE_VM, NULL);
++    clone(async_teardown_fn, new_stack_for_clone(), 0x00000100, NULL);
+     sigprocmask(SIG_SETMASK, &old_signals, NULL);
+ }
+-- 
+2.43.0
+

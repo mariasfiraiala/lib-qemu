@@ -1,0 +1,61 @@
+From 51337aa49a5079c02d0cc721282d28b1f5ff9200 Mon Sep 17 00:00:00 2001
+From: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+Date: Mon, 2 Jun 2025 14:54:51 +0300
+Subject: [PATCH 1/5] chardev: Remove Linux from agnostic funcs
+
+Signed-off-by: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+---
+ chardev/char-parallel.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/chardev/char-parallel.c b/chardev/char-parallel.c
+index a5164f975..55169245f 100644
+--- a/chardev/char-parallel.c
++++ b/chardev/char-parallel.c
+@@ -47,8 +47,6 @@
+ #include "chardev/char-fd.h"
+ #include "chardev/char-parallel.h"
+ 
+-#if defined(__linux__)
+-
+ typedef struct {
+     Chardev parent;
+     int fd;
+@@ -58,6 +56,8 @@ typedef struct {
+ #define PARALLEL_CHARDEV(obj) \
+     OBJECT_CHECK(ParallelChardev, (obj), TYPE_CHARDEV_PARALLEL)
+ 
++#if defined(__linux__)
++
+ static int pp_hw_mode(ParallelChardev *s, uint16_t mode)
+ {
+     if (s->mode != mode) {
+@@ -227,6 +227,8 @@ static int pp_ioctl(Chardev *chr, int cmd, void *arg)
+     return 0;
+ }
+ 
++#endif
++
+ static void qemu_chr_open_pp_fd(Chardev *chr,
+                                 int fd,
+                                 bool *be_opened,
+@@ -236,7 +238,6 @@ static void qemu_chr_open_pp_fd(Chardev *chr,
+     drv->fd = fd;
+     *be_opened = false;
+ }
+-#endif
+ 
+ static void qmp_chardev_open_parallel(Chardev *chr,
+                                       ChardevBackend *backend,
+@@ -275,7 +276,7 @@ static void char_parallel_class_init(ObjectClass *oc, void *data)
+ 
+     cc->parse = qemu_chr_parse_parallel;
+     cc->open = qmp_chardev_open_parallel;
+-    cc->chr_ioctl = pp_ioctl;
++    // cc->chr_ioctl = pp_ioctl;
+ }
+ 
+ static void char_parallel_finalize(Object *obj)
+-- 
+2.43.0
+

@@ -1,0 +1,35 @@
+From 9dd959b738cc5f28f3adbe0048fce58aee48be00 Mon Sep 17 00:00:00 2001
+From: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+Date: Mon, 2 Jun 2025 15:27:00 +0300
+Subject: [PATCH 5/5] xen/features.h: Remove guard as we need to redefine some
+ macros
+
+Signed-off-by: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+---
+ include/hw/xen/interface/features.h | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/include/hw/xen/interface/features.h b/include/hw/xen/interface/features.h
+index e3f7fbfcf..3b0142a71 100644
+--- a/include/hw/xen/interface/features.h
++++ b/include/hw/xen/interface/features.h
+@@ -24,7 +24,6 @@
+  * Copyright (c) 2006, Keir Fraser <keir@xensource.com>
+  */
+ 
+-#ifndef __XEN_PUBLIC_FEATURES_H__
+ #define __XEN_PUBLIC_FEATURES_H__
+ 
+ /*
+@@ -147,8 +146,6 @@
+ 
+ #define XENFEAT_NR_SUBMAPS 1
+ 
+-#endif /* __XEN_PUBLIC_FEATURES_H__ */
+-
+ /*
+  * Local variables:
+  * mode: C
+-- 
+2.43.0
+

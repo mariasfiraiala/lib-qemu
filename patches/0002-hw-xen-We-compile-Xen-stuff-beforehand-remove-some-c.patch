@@ -1,0 +1,29 @@
+From 4980b19475c12022193e0d0aeebd6bc1cc95befb Mon Sep 17 00:00:00 2001
+From: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+Date: Mon, 2 Jun 2025 15:00:37 +0300
+Subject: [PATCH 2/5] hw/xen: We compile Xen stuff beforehand, remove some
+ checks
+
+Signed-off-by: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+---
+ include/hw/xen/xen_native.h | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/include/hw/xen/xen_native.h b/include/hw/xen/xen_native.h
+index 4dce905fd..b9d04d7ce 100644
+--- a/include/hw/xen/xen_native.h
++++ b/include/hw/xen/xen_native.h
+@@ -1,10 +1,6 @@
+ #ifndef QEMU_HW_XEN_NATIVE_H
+ #define QEMU_HW_XEN_NATIVE_H
+ 
+-#ifdef __XEN_INTERFACE_VERSION__
+-#error In Xen native files, include xen_native.h before other Xen headers
+-#endif
+-
+ /*
+  * If we have new enough libxenctrl then we do not want/need these compat
+  * interfaces, despite what the user supplied cflags might say. They
+-- 
+2.43.0
+

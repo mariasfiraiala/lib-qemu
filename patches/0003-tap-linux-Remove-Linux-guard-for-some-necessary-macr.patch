@@ -1,0 +1,37 @@
+From 94a88c5aa7742220075af4e46f666dfdd066ea29 Mon Sep 17 00:00:00 2001
+From: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+Date: Mon, 2 Jun 2025 15:05:34 +0300
+Subject: [PATCH 3/5] tap-linux: Remove Linux guard for some necessary macros
+
+Signed-off-by: Maria Sfiraiala <maria.sfiraiala@gmail.com>
+---
+ net/tap-linux.h | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/net/tap-linux.h b/net/tap-linux.h
+index bbbb62c2a..42538f0f1 100644
+--- a/net/tap-linux.h
++++ b/net/tap-linux.h
+@@ -16,10 +16,6 @@
+ #ifndef QEMU_TAP_LINUX_H
+ #define QEMU_TAP_LINUX_H
+ 
+-#ifdef __linux__
+-
+-#include <linux/ioctl.h>
+-
+ /* Ioctl defines */
+ #define TUNSETIFF     _IOW('T', 202, int)
+ #define TUNGETFEATURES _IOR('T', 207, unsigned int)
+@@ -33,8 +29,6 @@
+ #define TUNSETVNETBE _IOW('T', 222, int)
+ #define TUNSETSTEERINGEBPF _IOR('T', 224, int)
+ 
+-#endif
+-
+ /* TUNSETIFF ifr flags */
+ #define IFF_TAP          0x0002
+ #define IFF_NO_PI        0x1000
+-- 
+2.43.0
+
